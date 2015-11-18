@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Android组件之——Intent | Bob&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Bob">
+    
+    
+      <meta name="description" content="还存在的3个问题
+
+两个flag的区别
+action、category和data、type共存时怎么匹配组件
+data的匹配规则还没写清楚
+
+
+启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
+
+显式Intent：设置了Component，已经明确了将要启动的组件；
+隐式Intent：未设置Component，将会通过Action、Cat">
+    
+
+    <meta name="description" content="还存在的3个问题
+
+两个flag的区别
+action、category和data、type共存时怎么匹配组件
+data的匹配规则还没写清楚
+
+
+启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
+
+显式Intent：设置了Component，已经明确了将要启动的组件；
+隐式Intent：未设置Component，将会通过Action、Cat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android组件之——Intent | Bob's Blog">
+<meta property="og:url" content="http://yoursite.com/2015/11/16/Android组件之——Intent/index.html">
+<meta property="og:site_name" content="Bob's Blog">
+<meta property="og:description" content="还存在的3个问题
+
+两个flag的区别
+action、category和data、type共存时怎么匹配组件
+data的匹配规则还没写清楚
+
+
+启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
+
+显式Intent：设置了Component，已经明确了将要启动的组件；
+隐式Intent：未设置Component，将会通过Action、Cat">
+<meta property="og:updated_time" content="2015-11-16T02:24:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android组件之——Intent | Bob's Blog">
+<meta name="twitter:description" content="还存在的3个问题
+
+两个flag的区别
+action、category和data、type共存时怎么匹配组件
+data的匹配规则还没写清楚
+
+
+启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
+
+显式Intent：设置了Component，已经明确了将要启动的组件；
+隐式Intent：未设置Component，将会通过Action、Cat">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+
+    <!-- 代码高亮 -->
+    <link href="/css/xcode.css" rel="stylesheet">
+
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for Bob&#39;s Blog"><img src="/images/favicon.png" width="80" alt="Bob&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Bob&#39;s Blog</a></h1>
+        <p class="panel-cover__subtitle">
+          艰难困苦，玉汝于成。
+        </p>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">
+          合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+------------------------------ -->
+
+<!-- ----------------------------
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <li class="navigation__item">
+    <a href="https://github.com/someus/huno" title="Huno on GitHub">
+      <i class='icon icon-social-github'></i>
+      <span class="label">GitHub</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+------------------------------ -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+    
+      
+      <div class="post-meta">
+        <time datetime="2015-11-16" class="post-meta__date date">2015-11-16</time> &#8226; 
+
+        <span class="post-meta__tags tags">
+
+            <font class="categories">
+              
+            </font>
+            
+              <font class="tags">
+                <a class="tags-link" href="/tags/Android/">Android</a>
+              </font>
+            
+
+        </span>
+      </div>
+      
+
+      <h1 class="post-title">Android组件之——Intent</h1>
+    </header>
+
+    <section class="post">
+      <p>还存在的3个问题</p>
+<ol>
+<li>两个flag的区别</li>
+<li>action、category和data、type共存时怎么匹配组件</li>
+<li>data的匹配规则还没写清楚</li>
+</ol>
+<hr>
+<p>启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。</p>
+<ul>
+<li>显式Intent：设置了Component，已经明确了将要启动的组件；</li>
+<li>隐式Intent：未设置Component，将会通过Action、Category或Data、Type属性来寻找与他们的值匹配的组件。（此处是或还是和？？？）可以通过隐式Intent来启动系统的Activity。</li>
+</ul>
+<a id="more"></a>
+<h3 id="1-_Component">1. Component</h3><p>Component指定了Intent将要启动的组件。</p>
+<p>指定Component可以setComponent，也可以直接setClass、setClassName。</p>
+<h3 id="2-_Action、Category">2. Action、Category</h3><p>Intent</p>
+<ul>
+<li>只能包括一个Action属性；</li>
+<li>可以包括多个Category属性，默认包含android.intent.category.DEFAULT的Category属性（所以如果希望Intent通过Category启动组件，这个组件必须配置这个默认的Category属性）</li>
+</ul>
+<p>组件</p>
+<ul>
+<li>可在<code>&lt;intent-filter&gt;</code>元素中配置多个Action元素和Category元素，通过android.name=””设置值。</li>
+</ul>
+<h3 id="3-_Data、Type">3. Data、Type</h3><h4 id="Intent">Intent</h4><ul>
+<li>Data和Type属性会互相覆盖，setDataAndType()可以同时设置这两个属性。</li>
+<li>Data属性接受一个Uri对象 scheme://host:port/path</li>
+<li>Type属性指定Data属性的Uri的MIME类型，可以自定义，但需要符合abc/xyz格式。</li>
+</ul>
+<h4 id="组件">组件</h4><ul>
+<li>可在<code>&lt;intent-filter&gt;</code>元素中添加<data>元素，通过android:scheme(host、port、path、pathPrefix、pathPattern)=””和android:mimeType=””设置值。<br>Data的匹配规则：</data></li>
+<li>如果希望<code>&lt;data&gt;</code>子元素能够正常使用，<code>&lt;intent-filter&gt;</code>中至少要配置一个<code>&lt;action&gt;</code>元素。</li>
+</ul>
+<h3 id="4-_Extra">4. Extra</h3><p>用于数据交换，应该是一个Bundle对象。</p>
+<h3 id="5-_Flag">5. Flag</h3><p>默认的控制旗标：<code>FLAG_ACTIVITY_NEW_TASK</code></p>
+<p>常用的控制旗标：</p>
+<ul>
+<li><code>FLAG_ACTIVITY_BROUGHT_TO_FRONT</code>：若栈中已存在以该flag启动的SomeActivity，则再次以该flag启动SomeActivity时，会将之前的SomeActivity移动至栈顶。</li>
+<li><code>FLAG_ACTIVITY_CREATE_TOP</code>：若栈中已存在以该flag启动的SomeActivity，则再次以该flag启动SomeActivity时，会将之前的SomeActivity上面的Activity出栈，而使其位于栈顶。类似于Activity的singleTask模式。</li>
+<li><code>FLAG_ACTIVITY_NO_ANIMATION</code>：启动Activity时不使用动画。</li>
+<li><code>FLAG_ACTIVITY_NO_HISTORY</code>：该Activity不会被保留在Activity栈中（当不位于栈顶时）。</li>
+<li><code>FLAG_ACTIVITY_SINGLE_TOP</code>：若以该flag启动的SomeActivity已经位于栈顶，则再次以该flag启动SomeActivity时，不会创建新的SomeActivity实例。类似于Activity的singleTop模式。</li>
+</ul>
+<hr>
+<p>示例代码</p>
+<ul>
+<li><p>Intent</p>
+<pre><code>Intent intent = <span class="keyword">new</span> Intent();
+intent.setComponent(<span class="keyword">new</span> ComponentName(<span class="keyword">this</span>, <span class="string">"SomeActivity"</span>));
+intent.setAction(<span class="string">"someAction"</span>);
+intent.addCategory(<span class="string">"someCategory"</span>);
+intent.setDataAndType(<span class="built_in">Uri</span>.parse(<span class="string">"scheme://host:port/path"</span>), <span class="string">"someType/someType"</span>);
+intent.putExtra(<span class="string">"key"</span>, <span class="string">"value"</span>);
+intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+</code></pre></li>
+<li><p>组件</p>
+<pre><code><span class="tag">&lt;<span class="title">activity</span> <span class="attribute">android:name</span>=<span class="value">"SomeActivity"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"action"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">category</span> <span class="attribute">android:name</span>=<span class="value">"category"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">data</span> 
+            <span class="attribute">android:scheme</span>=<span class="value">"scheme"</span>
+            <span class="attribute">android:host</span>=<span class="value">"host"</span>
+            <span class="attribute">android:mimeType</span>=<span class="value">"type/type"</span> /&gt;</span>
+    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">activity</span>&gt;</span>
+</code></pre></li>
+</ul>
+
+      <!-- more -->
+    </section>
+
+    
+  </article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+</footer>
+        </div>
+    </div>
+
+    <!-- The main JavaScript file for Casper -->
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config"> 
+      MathJax.Hub.Config({ 
+        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+    }); 
+    </script>
+
+    <!--kill ie6 -->
+    <!--[if IE 6]>
+      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+    <![endif]-->
+
+    <!--  google analytics -->
+    <script>
+      // add your google analytics code here
+    </script>
+
+    <!-- totop -->
+    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
+    </div>
+    <script>
+    (function($) { 
+      var upperLimit = 100;
+      var scrollElem = $('#totop');
+      var scrollSpeed = 500; 
+      scrollElem.hide();
+      $(window).scroll(function () {            
+        var scrollTop = $(document).scrollTop();       
+        if ( scrollTop > upperLimit ) {
+          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
+        }else{       
+          $(scrollElem).stop().fadeTo(300, 0); // fade out
+        }
+      });
+      $(scrollElem).click(function(){
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+      });
+    })(jQuery);
+    </script>
+
+    <!-- fancybox -->
+    
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+      (function($){
+        $('.fancybox').fancybox();
+      })(jQuery);
+    </script>
+    
+
+    <!-- 代码高亮 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
