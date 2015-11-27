@@ -7,7 +7,7 @@
     
 
     <title>
-      标签: PHP和Mysql Web开发 
+      Swift Tips | Bob&#39;s Blog 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,16 +15,19 @@
       <meta name="author" content="Bob">
     
     
+      <meta name="description" content="记录Swift的各种小知识。">
+    
 
-    <meta name="description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签: PHP和Mysql Web开发">
-<meta property="og:url" content="http://yoursite.com/tags/PHP和Mysql-Web开发/index.html">
+    <meta name="description" content="记录Swift的各种小知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift Tips | Bob's Blog">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/swift_tips/index.html">
 <meta property="og:site_name" content="Bob's Blog">
-<meta property="og:description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。">
+<meta property="og:description" content="记录Swift的各种小知识。">
+<meta property="og:updated_time" content="2015-11-27T13:37:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="标签: PHP和Mysql Web开发">
-<meta name="twitter:description" content="合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。">
+<meta name="twitter:title" content="Swift Tips | Bob's Blog">
+<meta name="twitter:description" content="记录Swift的各种小知识。">
     
     
     
@@ -161,66 +164,68 @@ classes that you can use:
         <div class="content-wrapper__inner entry">
             
 
+  <article class="post-container post-container--single">
 
-  <h1 class="archive-title">标签: PHP和Mysql Web开发</h1>
-  <hr class="post-list__divider" />
-
-
-<div class="main-post-list">
-    <ol class="post-list">
+    <header class="post-header">
     
-    
-    <li>
+      
+      <div class="post-meta">
+        <time datetime="2015-11-27" class="post-meta__date date">2015-11-27</time> &#8226; 
 
-      <h2 class="post-list__post-title post-title"><a href="/2015/11/16/php_nysql_web_development/" title="link to 第一篇、使用PHP">第一篇、使用PHP</a></h2>
+        <span class="post-meta__tags tags">
 
-      <p class="excerpt">
-        <h3 id="第一章、PHP快速入门">第一章、PHP快速入门</h3><ul>
-<li><p>字符串和变量</p>
-<pre><code><span class="title">echo</span> <span class="string">'My name is <span class="variable">$name</span>'</span>;
-<span class="title">echo</span> <span class="string">"My name is <span class="variable">$name</span>"</span>;
-
-<span class="title">echo</span> &lt;&lt;&lt;mark
-    // 
-mark
-</code></pre></li>
-</ul>
-      </p>
-
-      <div class="post-list__meta">
-
-        <time datetime="2015-11-16" class="post-list__meta--date date">2015-11-16</time> &#8226; 
-
-        <span class="post-list__meta--tags tags">
-          <font class="categories">
-            
-          </font>
-          
-            <font class="tags">
-              <a class="tags-link" href="/tags/PHP和Mysql-Web开发/">PHP和Mysql Web开发</a>, <a class="tags-link" href="/tags/php/">php</a>
+            <font class="categories">
+              
             </font>
-          
+            
+              <font class="tags">
+                <a class="tags-link" href="/tags/Swift/">Swift</a>
+              </font>
+            
 
         </span>
       </div>
+      
 
-      <hr class="post-list__divider" />
-    </li>
+      <h1 class="post-title">Swift Tips</h1>
+    </header>
+
+    <section class="post">
+      <blockquote>
+<p>记录Swift的各种小知识。</p>
+</blockquote>
+<p><a id="more"></a><br></p>
+<h3 id="Guard语句">Guard语句</h3><pre><code><span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(x: Int?)</span></span> 
+{
+    <span class="keyword">guard</span> <span class="keyword">let</span> x = x <span class="keyword">where</span> x &gt; <span class="number">0</span> <span class="keyword">else</span> {
+        <span class="keyword">return</span>;
+    }
+    <span class="comment">// 如果没有进入else，guard let x = x 已经对 x: Int? 进行了一次解包。   </span>
+    <span class="keyword">var</span> sum = <span class="number">3</span> + x
+}
+</code></pre><p>保证 x不为nil并且大于0 否则 return</p>
+<p>等价于</p>
+<pre><code><span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(x: Int?)</span></span>
+{
+    <span class="keyword">if</span> x = <span class="literal">nil</span> || x &lt;= <span class="number">0</span> {
+        <span class="keyword">return</span>;
+    }
+    <span class="comment">// ...</span>
+}
+</code></pre><p>不同之处在于，使用guard我们只需要考虑符合我们要求的值是什么，直接将不符合的值过滤掉（如someFunc中的return）。</p>
+<p>参考：<a href="http://www.jianshu.com/p/3a8e45af7fdd" target="_blank" rel="external">http://www.jianshu.com/p/3a8e45af7fdd</a></p>
+<hr>
+<h3 id="判断iOS版本">判断iOS版本</h3><pre><code><span class="tag">if</span> <span class="id">#available</span>(iOS8, *) {
+    <span class="comment">// iOS8及更高版本</span>
+}
+</code></pre>
+      <!-- more -->
+    </section>
+
     
-  </ol>
-
-  <hr class="post-list__divider " />
-
-<nav class="pagination" role="navigation">
-    
-
-    <span class="pagination__page-number">Page 1 of 1</span>
-    
-    
-</nav>
+  </article>
 
 
-</div>
             <footer class="footer">
     <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
 </footer>

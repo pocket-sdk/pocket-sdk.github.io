@@ -15,59 +15,19 @@
       <meta name="author" content="Bob">
     
     
-      <meta name="description" content="还存在的3个问题
-
-两个flag的区别
-action、category和data、type共存时怎么匹配组件
-data的匹配规则还没写清楚
-
-
-启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
-
-显式Intent：设置了Component，已经明确了将要启动的组件；
-隐式Intent：未设置Component，将会通过Action、Cat">
+      <meta name="description" content="阅读了《疯狂Android（第三版）·第五章、使用Intent和IntentFilter进行通信》 之后所做的笔记。（2015-11-24）">
     
 
-    <meta name="description" content="还存在的3个问题
-
-两个flag的区别
-action、category和data、type共存时怎么匹配组件
-data的匹配规则还没写清楚
-
-
-启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
-
-显式Intent：设置了Component，已经明确了将要启动的组件；
-隐式Intent：未设置Component，将会通过Action、Cat">
+    <meta name="description" content="阅读了《疯狂Android（第三版）·第五章、使用Intent和IntentFilter进行通信》 之后所做的笔记。（2015-11-24）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android组件之——Intent | Bob's Blog">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/Android组件之——Intent/index.html">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/crazy_android-intent/index.html">
 <meta property="og:site_name" content="Bob's Blog">
-<meta property="og:description" content="还存在的3个问题
-
-两个flag的区别
-action、category和data、type共存时怎么匹配组件
-data的匹配规则还没写清楚
-
-
-启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
-
-显式Intent：设置了Component，已经明确了将要启动的组件；
-隐式Intent：未设置Component，将会通过Action、Cat">
-<meta property="og:updated_time" content="2015-11-16T02:24:51.000Z">
+<meta property="og:description" content="阅读了《疯狂Android（第三版）·第五章、使用Intent和IntentFilter进行通信》 之后所做的笔记。（2015-11-24）">
+<meta property="og:updated_time" content="2015-11-27T06:19:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android组件之——Intent | Bob's Blog">
-<meta name="twitter:description" content="还存在的3个问题
-
-两个flag的区别
-action、category和data、type共存时怎么匹配组件
-data的匹配规则还没写清楚
-
-
-启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。
-
-显式Intent：设置了Component，已经明确了将要启动的组件；
-隐式Intent：未设置Component，将会通过Action、Cat">
+<meta name="twitter:description" content="阅读了《疯狂Android（第三版）·第五章、使用Intent和IntentFilter进行通信》 之后所做的笔记。（2015-11-24）">
     
     
     
@@ -210,7 +170,7 @@ classes that you can use:
     
       
       <div class="post-meta">
-        <time datetime="2015-11-16" class="post-meta__date date">2015-11-16</time> &#8226; 
+        <time datetime="2015-11-27" class="post-meta__date date">2015-11-27</time> &#8226; 
 
         <span class="post-meta__tags tags">
 
@@ -231,37 +191,32 @@ classes that you can use:
     </header>
 
     <section class="post">
-      <p>还存在的3个问题</p>
-<ol>
-<li>两个flag的区别</li>
-<li>action、category和data、type共存时怎么匹配组件</li>
-<li>data的匹配规则还没写清楚</li>
-</ol>
-<hr>
-<p>启动意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。</p>
+      <blockquote>
+<p>阅读了《疯狂Android（第三版）·第五章、使用Intent和IntentFilter进行通信》 之后所做的笔记。（2015-11-24）</p>
+</blockquote>
+<p><a id="more"></a><br></p>
+<p>intent：（启动）意图，可用于启动Activity、Service、BroadcastReceiver，大致包含7种属性。</p>
 <ul>
 <li>显式Intent：设置了Component，已经明确了将要启动的组件；</li>
-<li>隐式Intent：未设置Component，将会通过Action、Category或Data、Type属性来寻找与他们的值匹配的组件。（此处是或还是和？？？）可以通过隐式Intent来启动系统的Activity。</li>
+<li>隐式Intent：未设置Component，将会通过Action、Category或Data、Type属性来寻找与他们的值匹配的组件。可以通过隐式Intent来启动系统的Activity。</li>
 </ul>
-<a id="more"></a>
 <h3 id="1-_Component">1. Component</h3><p>Component指定了Intent将要启动的组件。</p>
 <p>指定Component可以setComponent，也可以直接setClass、setClassName。</p>
-<h3 id="2-_Action、Category">2. Action、Category</h3><p>Intent</p>
-<ul>
+<p>被启动组件几乎不需要使用<code>&lt;intent-filter&gt;</code>元素进行配置。</p>
+<h3 id="2-_Action、Category">2. Action、Category</h3><h4 id="Intent">Intent</h4><ul>
 <li>只能包括一个Action属性；</li>
 <li>可以包括多个Category属性，默认包含android.intent.category.DEFAULT的Category属性（所以如果希望Intent通过Category启动组件，这个组件必须配置这个默认的Category属性）</li>
 </ul>
-<p>组件</p>
-<ul>
+<h4 id="组件">组件</h4><ul>
 <li>可在<code>&lt;intent-filter&gt;</code>元素中配置多个Action元素和Category元素，通过android.name=””设置值。</li>
 </ul>
-<h3 id="3-_Data、Type">3. Data、Type</h3><h4 id="Intent">Intent</h4><ul>
+<h3 id="3-_Data、Type">3. Data、Type</h3><h4 id="Intent-1">Intent</h4><ul>
 <li>Data和Type属性会互相覆盖，setDataAndType()可以同时设置这两个属性。</li>
 <li>Data属性接受一个Uri对象 scheme://host:port/path</li>
 <li>Type属性指定Data属性的Uri的MIME类型，可以自定义，但需要符合abc/xyz格式。</li>
 </ul>
-<h4 id="组件">组件</h4><ul>
-<li>可在<code>&lt;intent-filter&gt;</code>元素中添加<data>元素，通过android:scheme(host、port、path、pathPrefix、pathPattern)=””和android:mimeType=””设置值。<br>Data的匹配规则：</data></li>
+<h4 id="组件-1">组件</h4><ul>
+<li>可在<code>&lt;intent-filter&gt;</code>元素中添加<data>元素，通过android:scheme(host、port、path、pathPrefix、pathPattern)=””和android:mimeType=””设置值。<br>Data的匹配规则：只有port或path而没有host则属性无效。</data></li>
 <li>如果希望<code>&lt;data&gt;</code>子元素能够正常使用，<code>&lt;intent-filter&gt;</code>中至少要配置一个<code>&lt;action&gt;</code>元素。</li>
 </ul>
 <h3 id="4-_Extra">4. Extra</h3><p>用于数据交换，应该是一个Bundle对象。</p>

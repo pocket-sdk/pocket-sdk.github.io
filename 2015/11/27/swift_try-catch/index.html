@@ -7,7 +7,7 @@
     
 
     <title>
-      Android四大组件 | Bob&#39;s Blog 
+      Swift中的try catch | Bob&#39;s Blog 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,19 +15,19 @@
       <meta name="author" content="Bob">
     
     
-      <meta name="description" content="四大组件: Activity、Service、BroadcastReceiver、ContentProvider">
+      <meta name="description" content="为什么我要使用try catch？可以看一下知乎上的帖子《为什么不建议用 try catch？》中 pig pig 的回复。">
     
 
-    <meta name="description" content="四大组件: Activity、Service、BroadcastReceiver、ContentProvider">
+    <meta name="description" content="为什么我要使用try catch？可以看一下知乎上的帖子《为什么不建议用 try catch？》中 pig pig 的回复。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件 | Bob's Blog">
-<meta property="og:url" content="http://yoursite.com/2015/11/16/Android学习笔记 2/index.html">
+<meta property="og:title" content="Swift中的try catch | Bob's Blog">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/swift_try-catch/index.html">
 <meta property="og:site_name" content="Bob's Blog">
-<meta property="og:description" content="四大组件: Activity、Service、BroadcastReceiver、ContentProvider">
-<meta property="og:updated_time" content="2015-11-16T02:24:51.000Z">
+<meta property="og:description" content="为什么我要使用try catch？可以看一下知乎上的帖子《为什么不建议用 try catch？》中 pig pig 的回复。">
+<meta property="og:updated_time" content="2015-11-27T13:28:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件 | Bob's Blog">
-<meta name="twitter:description" content="四大组件: Activity、Service、BroadcastReceiver、ContentProvider">
+<meta name="twitter:title" content="Swift中的try catch | Bob's Blog">
+<meta name="twitter:description" content="为什么我要使用try catch？可以看一下知乎上的帖子《为什么不建议用 try catch？》中 pig pig 的回复。">
     
     
     
@@ -170,7 +170,7 @@ classes that you can use:
     
       
       <div class="post-meta">
-        <time datetime="2015-11-16" class="post-meta__date date">2015-11-16</time> &#8226; 
+        <time datetime="2015-11-27" class="post-meta__date date">2015-11-27</time> &#8226; 
 
         <span class="post-meta__tags tags">
 
@@ -179,7 +179,7 @@ classes that you can use:
             </font>
             
               <font class="tags">
-                <a class="tags-link" href="/tags/Android/">Android</a>
+                <a class="tags-link" href="/tags/Swift/">Swift</a>
               </font>
             
 
@@ -187,71 +187,66 @@ classes that you can use:
       </div>
       
 
-      <h1 class="post-title">Android四大组件</h1>
+      <h1 class="post-title">Swift中的try catch</h1>
     </header>
 
     <section class="post">
-      <p>四大组件: Activity、Service、BroadcastReceiver、ContentProvider</p>
-<a id="more"></a>
-<h3 id="〇、Context">〇、Context</h3><h4 id="简述">简述</h4><ol>
-<li>描述的是一个应用程序环境的信息，即上下文；</li>
-<li>是一个抽象类，Android提供了它的具体实现类（ContextIml）；</li>
-<li>通过它可以获得应用程序的资源和类，也包括一些应用级别的操作。</li>
-</ol>
-<p>对于Android应用来说，Context对象与其包名是对应的。</p>
-<h4 id="类图">类图</h4><h3 id="一、Activity">一、Activity</h3><p>在MVC架构中，Activity起到了Controller的作用。</p>
-<p>启动Activity: startAvtivity(Intent intent);</p>
-<h4 id="1-_Activity的生命周期">1. Activity的生命周期</h4><p>OnCreate(): 创建</p>
-<p>OnStart(): 启动、显示</p>
-<p>OnResume(): 激活</p>
-<p>OnPause(): 失活</p>
-<p>OnStop(): 不显示</p>
-<p>OnRestart(): 重新创建、显示</p>
-<p>OnDestroy(): 销毁</p>
-<h3 id="2-_Activity的加载模式">2. Activity的加载模式</h3><p>指定<activity ...="" android:launchmode="">属性</activity></p>
+      <blockquote>
+<p>为什么我要使用try catch？可以看一下知乎上的帖子<a href="http://www.zhihu.com/question/29459586" target="_blank" rel="external">《为什么不建议用 try catch？》</a>中 pig pig 的回复。</p>
+</blockquote>
+<p><a id="more"></a><br></p>
+<h5 id="构建异常类型">构建异常类型</h5><pre><code><span class="class"><span class="keyword">enum</span> <span class="title">MyError</span>: <span class="title">ErrorType</span> {  </span>
+  <span class="keyword">case</span> <span class="constant">ParamIsNil</span>
+}
+</code></pre><h5 id="抛出异常">抛出异常</h5><pre><code><span class="keyword">static</span> <span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(param: Int?)</span></span> <span class="keyword">throws</span><span class="comment">/*-&gt;前添加throws表示该方法可能会抛出异常*/</span> -&gt; <span class="type">Int</span>
+{
+    <span class="keyword">guard</span> <span class="keyword">let</span> param = param <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="type">MyError</span>.<span class="type">ParamIsNil</span> <span class="comment">// 抛出异常</span>
+    }
+
+    <span class="keyword">return</span> param
+}
+</code></pre><h5 id="处理异常">处理异常</h5><pre><code><span class="keyword">let</span> <span class="keyword">value</span>: Int? = nil
+<span class="keyword">do</span> {
+    <span class="function"><span class="keyword">try</span> <span class="title">someFunc</span>(<span class="params"><span class="keyword">value</span></span>)
+}
+<span class="keyword">catch</span> MyError.ParamIsNil </span>{
+    print(<span class="string">"error: value is nil"</span>)
+}
+<span class="keyword">catch</span> {
+    print(<span class="string">"error: other error"</span>)
+}
+</code></pre><p>当然，如果你确信不会出现异常，可以使用<code>try!</code></p>
+<pre><code>try! <span class="function"><span class="title">someFunc</span><span class="params">(value)</span></span>
+</code></pre><h5 id="Try?">Try?</h5><p><code>try?</code>会试图执行一个会抛出异常的语句。如果抛出异常则异常结果会被包含在optional中，如果未抛出异常则是nil。</p>
+<p>【待补完】</p>
+<p><a href="http://www.tuicool.com/articles/qYveYv3" target="_blank" rel="external">http://www.tuicool.com/articles/qYveYv3</a></p>
+<h5 id="Defer">Defer</h5><p>执行到defer语句时，其操作会被推入栈中，当作用域即将结束时（无论是正常还是异常），将会逐条运行栈中的操作语句（也就是最后入栈的操作语句会先被执行）。</p>
+<pre><code><span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">()</span></span> <span class="keyword">throws</span>
+{
+    <span class="keyword">guard</span> openDirectory() <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="type">MyError</span>.<span class="type">OpenDirectoryFail</span>
+    }
+    <span class="keyword">defer</span>{ closeDirectory() }
+    <span class="keyword">guard</span> openFile() <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="type">MyError</span>.<span class="type">OpenFileFail</span>
+    }
+    <span class="keyword">defer</span>{ closeFile() }
+    <span class="keyword">guard</span> writeFile() <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="type">MyError</span>.<span class="type">WriteFileFail</span>
+    }
+}
+</code></pre><p>上述代码即使 </p>
 <ul>
-<li><p>standard</p>
-</li>
-<li><p><strong>singleTop</strong>：若要启动的Activity已经位于栈顶，则</p>
-</li>
-<li><p><strong>singleTask</strong>：若要启动的Activity已存在，且未位于栈顶，则系统会将位于该Activity上面的所有Activity出栈，以使其位于栈顶。</p>
-</li>
-<li><p><strong>singleInstance</strong>：采用该模式加载的Activity所在的Task只包含该Activity，自然该Activity总是位于栈顶。</p>
-</li>
+<li>写入文件 writeFile() 出现异常，文件和文件夹仍能够被关闭。注意：会先关闭文件，再关闭文件夹。</li>
+<li>打开文件 openFile() 出现异常，文件夹仍能够被关闭。</li>
 </ul>
-<h3 id="3-_Fragment">3. Fragment</h3><ul>
-<li><p>Activity与Fragment</p>
-<p>  Activity依靠FragmentManager来管理Fragment，借助FragmentTransaction来添加、删除、替换Fragment。</p>
-</li>
-<li><p>Fragment的生命周期</p>
-<p>  类似于Activity，不同于Activity之处在于</p>
+<hr>
+<p>参考：</p>
 <ul>
-<li>在OnStart()只前会调用OnCreateView()和OnAcivityCreated()；</li>
-<li>在OnStop()之后会调用OnDestroyView()；</li>
-<li>从Back栈返回会重新调用OnCreateView()创建视图;</li>
+<li><a href="http://www.jianshu.com/p/96a7db3fde00" target="_blank" rel="external">Swift 2.0 异常处理</a></li>
+<li><a href="http://www.jianshu.com/p/eb718439551f" target="_blank" rel="external">[Swift2.0系列]Defer/Guard 基础语法</a></li>
 </ul>
-</li>
-</ul>
-<h3 id="二、Service">二、Service</h3><h3 id="Layout">Layout</h3><ul>
-<li><p>LinearLyout 线性布局</p>
-</li>
-<li><p>TableLayout 表格布局</p>
-</li>
-<li><p>FrameLayout 帧布局</p>
-</li>
-<li><p>RelativeLayout 相对布局</p>
-</li>
-<li><p>GrirdLayout 网格布局</p>
-</li>
-<li><p>Absolute 绝对布局</p>
-</li>
-</ul>
-<h2 id="Others">Others</h2><ul>
-<li><p>Bundle</p>
-<p>  key-value 形式保存数据，主要方法: put、get。</p>
-</li>
-</ul>
-<h2 id="参考">参考</h2><p><a href="http://www.cnblogs.com/angeldevil/p/3340644.html" target="_blank" rel="external">Android消息处理机制(Handler、Looper、MessageQueue与Message)</a></p>
 
       <!-- more -->
     </section>

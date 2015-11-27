@@ -970,18 +970,28 @@ h2 {
   font-size: 2.0em;
   line-height: 1.8em; }
 
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
 h3 {
   font-size: 1.6em;
   line-height: 1.8em; }
 
 h4 {
-  font-size: 1.4em; }
-
-h4 {
-  font-size: 1.2em; }
+  font-size: 1.4em;
+  line-height: 1.8em; }
 
 h5 {
-  font-size: 1em; }
+  font-size: 1.2em;
+  line-height: 1.8em; }
+
+h6 {
+  font-size: 1em;
+  line-height: 1.8em; }
 
 p {
   margin-bottom: 1.3em;
@@ -993,19 +1003,26 @@ strong {
 em {
   font-style: italic; }
 
-blockquote {
+/*blockquote {
   margin: 1em 0;
   padding: 1em 0;
   background: #f8f8f8;
   border: 1px solid #eeeeee;
   border-radius: 3px;
-  /*font-family: "Roboto Slab", serif;*/
   font-family:  微软雅黑,"Raleway",Verdana,sans-serif,宋体, serif, "Droid Serif", Helvetica Neue, Helvetica, Arial;
   font-weight: lighter;
   font-style: italic;
-  font-size: 1.0em;
-  /*text-align: center;*/ }
+  font-size: 1.0em; }
   blockquote p:last-child {
+    margin-bottom: 0; }*/
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
     margin-bottom: 0; }
 
 ol, ul {
