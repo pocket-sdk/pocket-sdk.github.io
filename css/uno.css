@@ -1713,7 +1713,7 @@ input[type="tel"] {
 
 /* add */
 
- table {
+/* table {
     border-collapse: collapse;
     width: 100%;
     margin: 0 0 20px;
@@ -1725,4 +1725,27 @@ th, td {
     border-bottom: 1px solid #AAAAAA;
     padding: 5px 10px;
     text-align: left;
-}
+}*/
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
