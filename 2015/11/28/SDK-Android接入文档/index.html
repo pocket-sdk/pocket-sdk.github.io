@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      PocketSDK-Android接入指南 | PocketSDK 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Pocket Games">
+    
+    
+      <meta name="description" content="一、概述
+本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。
+&amp;lt;!-- more --&amp;gt;
+二、运行环境
+此版本sdk需要在jdk1.7上运行，要求android sdk版本为19或者以上
+三、导入PocketSDK资源包
+
+
+将PocketGamesSDK文件夹导入工程。">
+    
+
+    <meta name="description" content="一、概述
+本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。
+&amp;lt;!-- more --&amp;gt;
+二、运行环境
+此版本sdk需要在jdk1.7上运行，要求android sdk版本为19或者以上
+三、导入PocketSDK资源包
+
+
+将PocketGamesSDK文件夹导入工程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PocketSDK-Android接入指南 | PocketSDK">
+<meta property="og:url" content="http://yoursite.com/2015/11/28/SDK-Android接入文档/index.html">
+<meta property="og:site_name" content="PocketSDK">
+<meta property="og:description" content="一、概述
+本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。
+&amp;lt;!-- more --&amp;gt;
+二、运行环境
+此版本sdk需要在jdk1.7上运行，要求android sdk版本为19或者以上
+三、导入PocketSDK资源包
+
+
+将PocketGamesSDK文件夹导入工程。">
+<meta property="og:image" content="http://i1.tietuku.com/e6645db27f997958.png">
+<meta property="og:image" content="http://i1.tietuku.com/9e0a8d7ebea2b036.png">
+<meta property="og:updated_time" content="2015-10-19T09:17:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PocketSDK-Android接入指南 | PocketSDK">
+<meta name="twitter:description" content="一、概述
+本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。
+&amp;lt;!-- more --&amp;gt;
+二、运行环境
+此版本sdk需要在jdk1.7上运行，要求android sdk版本为19或者以上
+三、导入PocketSDK资源包
+
+
+将PocketGamesSDK文件夹导入工程。">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+
+    <!-- 代码高亮 -->
+    <link href="/css/xcode.css" rel="stylesheet">
+
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for PocketSDK"><img src="/images/favicon.png" width="80" alt="PocketSDK logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">PocketSDK</a></h1>
+        <p class="panel-cover__subtitle">
+          接入指南
+        </p>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">
+          千奇网络科技
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/tags/server" title="" class="">服务端</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/ios" title="" class="">iOS</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/android" title="" class="">安卓</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+------------------------------ -->
+
+<!-- ----------------------------
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <li class="navigation__item">
+    <a href="https://github.com/someus/huno" title="Huno on GitHub">
+      <i class='icon icon-social-github'></i>
+      <span class="label">GitHub</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+------------------------------ -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+    
+      
+      <div class="post-meta">
+        <time datetime="2015-11-28" class="post-meta__date date">2015-11-28</time> &#8226; 
+
+        <span class="post-meta__tags tags">
+
+            <font class="categories">
+              
+            </font>
+            
+              <font class="tags">
+                <a class="tags-link" href="/tags/android/">android</a>
+              </font>
+            
+
+        </span>
+      </div>
+      
+
+      <h1 class="post-title">PocketSDK-Android接入指南</h1>
+    </header>
+
+    <section class="post">
+      <h2>一、概述</h2>
+<p>本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。</p>
+<p>&lt;!-- more --&gt;</p>
+<h2>二、运行环境</h2>
+<p>此版本sdk需要在jdk1.7上运行，要求android sdk版本为19或者以上</p>
+<h2>三、导入PocketSDK资源包</h2>
+<ul>
+<li>
+<p>将PocketGamesSDK文件夹导入工程。</p>
+</li>
+<li>
+<p>将facebook文件夹导入工程。</p>
+</li>
+<li>
+<p>将google-play-services_lib文件夹导入工程。</p>
+<p><img src="http://i1.tietuku.com/e6645db27f997958.png" alt=""></p>
+</li>
+<li>
+<p>游戏应用引用以上库文件</p>
+<p><img src="http://i1.tietuku.com/9e0a8d7ebea2b036.png" alt=""></p>
+</li>
+<li>
+<p>将sdk提供的<em>assets</em>文件夹下面的资源拷入游戏项目目录下</p>
+</li>
+<li>
+<p>拷贝sdk下面的<em>manifest</em>里面的所有<em>activity</em>到项目主目录下的<em>manifest</em>中，以下为实例，以给出的manifest文件中得为准</p>
+<pre><code>	&lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGLoginActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;landscape&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+     /&gt;
+   &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGLoginPortraitActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;portrait&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+     /&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.GGBuyByPlatformActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;landscape&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+   /&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.SelectChargeTypeActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;landscape&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;activity 
+      android:name=&quot;com.pocket.sdk.activity.CGPlatformPayFragmentActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;landscape&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!-- 注册页面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGRegisterActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!-- 选择渠道界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGPayCenterFragmentActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:screenOrientation=&quot;landscape&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!--打开支付网页  --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGPayWebActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      &gt;
+  &lt;/activity&gt;
+  &lt;!-- 个认中心界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGAccountManageActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+       /&gt;
+  &lt;!-- 忘记密码界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGForgetPasswActivity&quot;
+      android:theme=&quot;@style/IntentTheme&quot;
+    /&gt;
+  &lt;!-- 賬戶忘记密码界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGModifyPwdActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+     /&gt;
+  &lt;!-- 賬戶忘记密码界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGOrderHistoryActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+     /&gt;
+  &lt;!-- 广告界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGAdActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+       /&gt;
+  
+  &lt;!-- 登录暂停页 --&gt;
+  &lt;activity 
+      android:name=&quot;com.pocket.sdk.activity.CGLoginPauseActivity&quot;
+      android:configChanges=&quot;orientation|keyboardHidden|screenSize&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!-- 消息 --&gt;
+  &lt;activity 
+      android:name=&quot;com.pocket.sdk.activity.CGIntentWebActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!-- 绑定邮箱界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGBindEmailPwdActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+   /&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGBindEmailConfirmActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+    /&gt;
+  &lt;!-- 绑定账号界面 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.LoginProgressActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+    /&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CGForgetFragmentActivity&quot;
+       android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot;
+      /&gt;
+  &lt;!-- 客服 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.UserCustomerActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar.Fullscreen&quot; /&gt;
+   &lt;!-- 竖版支付 --&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.PayPortraitActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.CardPayPortraitActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; 
+      android:windowSoftInputMode=&quot;stateHidden|adjustResize&quot;/&gt;
+  &lt;activity
+      android:name=&quot;com.pocket.sdk.activity.OfficialPayPortraitActivity&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;
+
+  &lt;meta-data
+      android:name=&quot;channelID&quot;
+      android:value=&quot;1&quot; /&gt;
+  &lt;meta-data 
+      android:name=&quot;advChannel&quot;
+      android:value=&quot;GooglePlay&quot;/&gt;
+  &lt;meta-data
+      android:name=&quot;com.google.android.gms.version&quot;
+      android:value=&quot;@integer/google_play_services_version&quot; /&gt; 
+  &lt;!-- recevier --&gt;
+  &lt;receiver 
+      android:name=&quot;com.pocket.sdk.receiver.TrackingReceiver&quot;
+      android:exported=&quot;true&quot; &gt;
+       &lt;intent-filter&gt;
+          &lt;action android:name=&quot;com.android.vending.INSTALL_REFERRER&quot; /&gt;
+      &lt;/intent-filter&gt;
+  &lt;/receiver&gt;
+  
+  &lt;!-- facebook --&gt;
+   &lt;activity
+      android:name=&quot;com.facebook.FacebookActivity&quot;
+      android:configChanges=&quot;keyboard|keyboardHidden|screenLayout|screenSize|orientation&quot;
+      android:label=&quot;@string/app_name&quot;
+      android:theme=&quot;@android:style/Theme.Translucent.NoTitleBar&quot; /&gt;
+
+  &lt;provider android:authorities=&quot;com.facebook.app.FacebookContentProvider426352630876651&quot;
+    android:name=&quot;com.facebook.FacebookContentProvider&quot;
+    android:exported=&quot;true&quot;/&gt;
+  &lt;meta-data
+      android:name=&quot;com.facebook.sdk.ApplicationId&quot;
+      android:value=&quot;@string/facebook_SiegeGrazingLandVietnam_app_id&quot; /&gt;
+  &lt;service android:name=&quot;com.pocket.sdk.service.AppCheckService&quot; /&gt;  
+</code></pre>
+</li>
+<li>
+<p>拷贝sdk下面的<em>manifest</em>里面的所有<em>permission</em>到项目主目录下的<em>manifest</em>中</p>
+<pre><code>&lt;uses-permission android:name=&quot;com.android.vending.BILLING&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_LOGS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_COARSE_LOCATION&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.GET_TASKS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.INTERACT_ACROSS_USERS_FULL&quot;/&gt;
+</code></pre>
+<p><strong>注意事项:</strong></p>
+<p><em><em>①.确保assets下面的文件全部替换，没有以前的残余文件
+②.确保配置为参数文档中的最新参数
+③.根据提供的参数设置好</em>meta-data</em>中得<em>channelID</em>（平台提供的渠道id）和<em>advChannel</em>（平台提供的渠道名称）
+④.在provider中修改<em>authorities</em>结尾的facebook提供的<em>appid</em>为正确值**</p>
+</li>
+</ul>
+<h2>四、PocketSDK开放接口</h2>
+<pre><code>/*获取sdk实力对象*/
+public static PocketGamesSDK getInstance(){}；
+	
+//使用实例
+PocketGamesSDK.getInstance()；
+
+
+/*	 * 初始化sdk方法	 * @param url				平台分配的请求url	 * @param appId			平台分配的appid	 * @param appKey			平台分配的appkey	 * @param context			依附context	 * @return			返回sdk实例对象	 */	
+public PocketGamesSDK initSDK(String url, int appId, String appKey,final Context context)；
+ 
+//使用实例
+PocketGamesSDK.getInstance().initSDK(&quot;http://sdk-test.changic.net.cn:8191/pocketgames/&quot;, 1020, &quot;89646e72-f06e-4756-8352-cf779b7ea0ae&quot;, this);
+
+
+/*
+ * 设置打印日志开关
+ * @param  isDebug  调试开关
+ */
+public void setDebug(boolean isDebug)
+
+//使用实例
+PocketGamesSDK.getInstance().setDebug(true);//此处true为开启
+
+/*
+ * 设置sdk横竖屏
+ * @param drection 方向 		PocketGamesSDK.LANDSCAPE  横屏	 *                       		PocketGamesSDK.PORTRAIT   竖屏
+ */
+ public void setDrection(int drection)；
+ 
+ //使用实例
+ PocketGamesSDK.getInstance().setDrection(PocketGamesSDK.PORTRAIT);
+
+
+/*
+ * 设置游戏回调监听
+ * @param callback 回调，由接入主类实现接口
+ */
+public static void addGameListener(IDispatcherGameCallback callback)
+
+//使用实例
+PocketGamesSDK.addGameListener(this); 
+
+
+/*
+ * 自动登录
+ */
+public void autoLogin()；
+
+//使用实例
+PocketGamesSDK.getInstance().autoLogin()；
+
+
+/*
+ * 绑定区服
+ * @param zoneId 服务器Id
+ * @param roleId 角色Id
+ * @param level  角色等级
+ */
+public void bindZone(String zoneId, String roleId, String level)；
+
+//使用实例
+PocketGamesSDK.getInstance().bindZone(zoneId,roleId,level)；
+
+
+/*
+ * 打开登录界面
+ */
+public void showLogin()；
+
+//使用实例
+PocketGamesSDK.getInstance().showLogin()；
+
+
+/*
+ * 打开支付界面
+ */
+public void showPayment()；
+
+//使用实例
+PocketGamesSDK.getInstance().showPayment()；
+
+
+/*
+ * 显示悬浮框
+ */
+public void showGameBar()；
+
+//使用实例
+PocketGamesSDK.getInstance().showGameBar()；
+
+
+/*
+ * 关闭悬浮框
+ */
+public void closeGameBar()；
+
+//使用实例
+PocketGamesSDK.getInstance().closeGameBar()；
+
+
+/*
+ * 退出游戏接口
+ */
+public void logout()；
+
+//使用实例
+PocketGamesSDK.getInstance().logout()；
+
+
+/*
+ * 销毁sdk接口
+ */
+public void destroySDK()；
+
+//使用实例
+PocketGamesSDK.getInstance().destroySDK()；
+
+
+/*
+ * 游戏实现的回调监听接口
+ */
+public abstract interface IDispatcherGameCallback {	public void onLogin(UserInfoBean bean); //登录回调监听	public RoleBean onRoleInfo();  //支付获取游戏订单与信息接口	public void onSwitchAccount();  //切换账号接口	public void onCloseSdkWindow(boolean flag);  //关闭sdk界面	public void exit();   //退出	public void onInitSuccess(boolean isInit); //初始化成功}
+</code></pre>
+<h2>五、接入具体流程</h2>
+<p><strong>注意:
+①接入需按照下面的流程步骤，顺序展开
+②在登录成功之后进入游戏时，需要调用绑定区服接口
+PocketGamesSDK.getInstance().bindZone(zoneId,roleId,level)；</strong></p>
+<ul>
+<li>
+<p>接入主类实现<em>IDispatcherGameCallback</em>接口
+</p>
+</li>
+<li>
+<p>初始化准备</p>
+<pre><code>// 设置调试模式是否开启
+PocketGamesSDK.getInstance().setDebug(true);//此处true为开启
+
+// 设置横竖屏
+PocketGamesSDK.getInstance().setDrection(PocketGamesSDK.PORTRAIT);
+
+// 设置游戏回调监听
+PocketGamesSDK.addGameListener(this); 
+
+// 初始化sdk
+PocketGamesSDK.getInstance().initSDK(&quot;http://sdk-test.changic.net.cn:8191/pocketgames/&quot;, 1020, &quot;89646e72-f06e-4756-8352-cf779b7ea0ae&quot;, this);
+</code></pre>
+</li>
+<li>
+<p>游戏悬浮框的实现</p>
+<pre><code>// 注意：必须在activity这两个生命周期
+
+@Override		public void onResume() {			super.onResume();			PocketGamesSDK.getInstance().showGameBar();		}			@Override		public void onPause() {			super.onPause();			PocketGamesSDK.getInstance().closeGameBar();		}
+</code></pre>
+</li>
+<li>
+<p>游戏支付获取角色订单信息实现</p>
+<pre><code>// 注意：每次回调这个接口，都需要重新获取最新的游戏订单号
+
+@Override		public RoleBean onRoleInfo() {			Random random = new Random();			RoleBean roleBean = new RoleBean();			roleBean.setGameOrderId(String.valueOf(random.nextInt()));			roleBean.setGameZoneId(&quot;1001&quot;);			roleBean.setRoleId(&quot;xuchao&quot;);			roleBean.setLevel(&quot;99&quot;);
+			// 以下为特殊渠道用，如果在asstes下没有pocketgames_exinfo.properties文件，可不写			try {				Properties properties = new Properties();				properties.load(getApplicationContext().getAssets().open(&quot;pocketgames_exinfo.properties&quot;));				String exInfo = properties.getProperty(&quot;exInfo&quot;);				roleBean.setExinfo(exInfo);			} catch (IOException e) {				// TODO Auto-generated catch block				e.printStackTrace();			}			return roleBean;		}	
+</code></pre>
+</li>
+<li>
+<p>登录的实现</p>
+<pre><code>//注意：如果游戏登陆和初始化是异步的，那么需要用以下方法，如果不是则在登陆接口直接调用sdk登陆即可
+
+private boolean sdkInit =false;			@Override		public void onInitSuccess(final boolean isInit) {			sdkInit = isInit;			handler.sendEmptyMessage(0);		}			// 比如这是游戏登陆的方法		public void doLogin(){			//PocketGamesSDK.getInstance().autoLogin();  //非异步则直接调用登陆即可			handler.sendEmptyMessage(0);		}			Handler handler = new Handler(){			public void handleMessage(android.os.Message msg) {				if(msg.what == 0){					if(sdkInit){						//自动登录						PocketGamesSDK.getInstance().autoLogin();					}				}			};		};</code></pre>
+</li>
+</ul>
+
+      <!-- more -->
+    </section>
+
+    
+  </article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+</footer>
+        </div>
+    </div>
+
+    <!-- The main JavaScript file for Casper -->
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config"> 
+      MathJax.Hub.Config({ 
+        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+    }); 
+    </script>
+
+    <!--kill ie6 -->
+    <!--[if IE 6]>
+      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+    <![endif]-->
+
+    <!--  google analytics -->
+    <script>
+      // add your google analytics code here
+    </script>
+
+    <!-- totop -->
+    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
+    </div>
+    <script>
+    (function($) { 
+      var upperLimit = 100;
+      var scrollElem = $('#totop');
+      var scrollSpeed = 500; 
+      scrollElem.hide();
+      $(window).scroll(function () {            
+        var scrollTop = $(document).scrollTop();       
+        if ( scrollTop > upperLimit ) {
+          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
+        }else{       
+          $(scrollElem).stop().fadeTo(300, 0); // fade out
+        }
+      });
+      $(scrollElem).click(function(){
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+      });
+    })(jQuery);
+    </script>
+
+    <!-- fancybox -->
+    
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+      (function($){
+        $('.fancybox').fancybox();
+      })(jQuery);
+    </script>
+    
+
+    <!-- 代码高亮 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

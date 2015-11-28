@@ -7,27 +7,51 @@
     
 
     <title>
-      Swift Tips | Bob&#39;s Blog 
+      PocketSDK-iOS版本更新 | PocketSDK 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-      <meta name="author" content="Bob">
+      <meta name="author" content="Pocket Games">
     
     
-      <meta name="description" content="记录Swift的各种小知识。">
+      <meta name="description" content="V3.2.6
+
+解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。
+
+V3.2.5
+
+解决了cocos2dx触摸穿透的问题。">
     
 
-    <meta name="description" content="记录Swift的各种小知识。">
+    <meta name="description" content="V3.2.6
+
+解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。
+
+V3.2.5
+
+解决了cocos2dx触摸穿透的问题。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift Tips | Bob's Blog">
-<meta property="og:url" content="http://yoursite.com/2015/11/27/swift_tips/index.html">
-<meta property="og:site_name" content="Bob's Blog">
-<meta property="og:description" content="记录Swift的各种小知识。">
-<meta property="og:updated_time" content="2015-11-27T13:37:19.000Z">
+<meta property="og:title" content="PocketSDK-iOS版本更新 | PocketSDK">
+<meta property="og:url" content="http://yoursite.com/2015/11/28/SDK-iOS更新日志/index.html">
+<meta property="og:site_name" content="PocketSDK">
+<meta property="og:description" content="V3.2.6
+
+解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。
+
+V3.2.5
+
+解决了cocos2dx触摸穿透的问题。">
+<meta property="og:updated_time" content="2015-11-28T02:38:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift Tips | Bob's Blog">
-<meta name="twitter:description" content="记录Swift的各种小知识。">
+<meta name="twitter:title" content="PocketSDK-iOS版本更新 | PocketSDK">
+<meta name="twitter:description" content="V3.2.6
+
+解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。
+
+V3.2.5
+
+解决了cocos2dx触摸穿透的问题。">
     
     
     
@@ -60,17 +84,17 @@
     <div class="panel-main__content">
 
         
-        <a href="/" title="link to homepage for Bob&#39;s Blog"><img src="/images/favicon.png" width="80" alt="Bob&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        <a href="/" title="link to homepage for PocketSDK"><img src="/images/favicon.png" width="80" alt="PocketSDK logo" class="panel-cover__logo logo" /></a>
         
 
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Bob&#39;s Blog</a></h1>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">PocketSDK</a></h1>
         <p class="panel-cover__subtitle">
-          艰难困苦，玉汝于成。
+          接入指南
         </p>
         
         <hr class="panel-cover__divider" />
         <p class="panel-cover__description">
-          合抱之木，生于毫末；九层之台，起于累土；千里之行，始于足下。
+          千奇网络科技
         </p>
         <hr class="panel-cover__divider panel-cover__divider--secondary" />
 
@@ -81,7 +105,13 @@
 
               
                 
-                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客</a></li>
+                <li class="navigation__item"><a href="/tags/server" title="" class="">服务端</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/ios" title="" class="">iOS</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/android" title="" class="">安卓</a></li>
               
 
             </ul>
@@ -170,7 +200,7 @@ classes that you can use:
     
       
       <div class="post-meta">
-        <time datetime="2015-11-27" class="post-meta__date date">2015-11-27</time> &#8226; 
+        <time datetime="2015-11-28" class="post-meta__date date">2015-11-28</time> &#8226; 
 
         <span class="post-meta__tags tags">
 
@@ -179,7 +209,7 @@ classes that you can use:
             </font>
             
               <font class="tags">
-                <a class="tags-link" href="/tags/Swift/">Swift</a>
+                <a class="tags-link" href="/tags/ios/">ios</a>
               </font>
             
 
@@ -187,38 +217,19 @@ classes that you can use:
       </div>
       
 
-      <h1 class="post-title">Swift Tips</h1>
+      <h1 class="post-title">PocketSDK-iOS版本更新</h1>
     </header>
 
     <section class="post">
-      <blockquote>
-<p>记录Swift的各种小知识。</p>
-</blockquote>
-<p><a id="more"></a><br></p>
-<h3 id="Guard语句">Guard语句</h3><pre><code><span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(x: Int?)</span></span> 
-{
-    <span class="keyword">guard</span> <span class="keyword">let</span> x = x <span class="keyword">where</span> x &gt; <span class="number">0</span> <span class="keyword">else</span> {
-        <span class="keyword">return</span>;
-    }
-    <span class="comment">// 如果没有进入else，guard let x = x 已经对 x: Int? 进行了一次解包。   </span>
-    <span class="keyword">var</span> sum = <span class="number">3</span> + x
-}
-</code></pre><p>保证 x不为nil并且大于0 否则 return</p>
-<p>等价于</p>
-<pre><code><span class="func"><span class="keyword">func</span> <span class="title">someFunc</span><span class="params">(x: Int?)</span></span>
-{
-    <span class="keyword">if</span> x = <span class="literal">nil</span> || x &lt;= <span class="number">0</span> {
-        <span class="keyword">return</span>;
-    }
-    <span class="comment">// ...</span>
-}
-</code></pre><p>不同之处在于，使用guard我们只需要考虑符合我们要求的值是什么，直接将不符合的值过滤掉（如someFunc中的return）。</p>
-<p>参考：<a href="http://www.jianshu.com/p/3a8e45af7fdd" target="_blank" rel="external">http://www.jianshu.com/p/3a8e45af7fdd</a></p>
-<hr>
-<h3 id="判断iOS版本">判断iOS版本</h3><pre><code><span class="tag">if</span> <span class="id">#available</span>(iOS8, *) {
-    <span class="comment">// iOS8及更高版本</span>
-}
-</code></pre>
+      <h2>V3.2.6</h2>
+<ul>
+<li>解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。</li>
+</ul>
+<h2>V3.2.5</h2>
+<ul>
+<li>解决了cocos2dx触摸穿透的问题。</li>
+</ul>
+
       <!-- more -->
     </section>
 
