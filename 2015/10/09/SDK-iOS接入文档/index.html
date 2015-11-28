@@ -15,65 +15,21 @@
       <meta name="author" content="Pocket Games">
     
     
-      <meta name="description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。
-
-一、导入PocketSDK
-
-
-将PocketSDK文件夹拖入工程。
-
-
-将配置文件 PocketSDKConfig_(appId).plist 拖入工程。
-
-
-点击 TARGETS—&amp;gt; Build Phases —&amp;gt; Link Binar">
+      <meta name="description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。">
     
 
-    <meta name="description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。
-
-一、导入PocketSDK
-
-
-将PocketSDK文件夹拖入工程。
-
-
-将配置文件 PocketSDKConfig_(appId).plist 拖入工程。
-
-
-点击 TARGETS—&amp;gt; Build Phases —&amp;gt; Link Binar">
+    <meta name="description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PocketSDK-iOS接入文档 | PocketSDK">
 <meta property="og:url" content="http://yoursite.com/2015/10/09/SDK-iOS接入文档/index.html">
 <meta property="og:site_name" content="PocketSDK">
-<meta property="og:description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。
-
-一、导入PocketSDK
-
-
-将PocketSDK文件夹拖入工程。
-
-
-将配置文件 PocketSDKConfig_(appId).plist 拖入工程。
-
-
-点击 TARGETS—&amp;gt; Build Phases —&amp;gt; Link Binar">
+<meta property="og:description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。">
 <meta property="og:image" content="http://i2.tietuku.com/38bb53cc0ec0e1e0.png">
 <meta property="og:image" content="http://i2.tietuku.com/520d033d21f089d3.png">
-<meta property="og:updated_time" content="2015-11-28T02:38:15.000Z">
+<meta property="og:updated_time" content="2015-11-28T03:43:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PocketSDK-iOS接入文档 | PocketSDK">
-<meta name="twitter:description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。
-
-一、导入PocketSDK
-
-
-将PocketSDK文件夹拖入工程。
-
-
-将配置文件 PocketSDKConfig_(appId).plist 拖入工程。
-
-
-点击 TARGETS—&amp;gt; Build Phases —&amp;gt; Link Binar">
+<meta name="twitter:description" content="本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。">
     
     
     
@@ -127,13 +83,13 @@
 
               
                 
-                <li class="navigation__item"><a href="/tags/server" title="" class="">服务端</a></li>
+                <li class="navigation__item"><a href="/tags/Server" title="" class="">服务端</a></li>
               
                 
-                <li class="navigation__item"><a href="/tags/ios" title="" class="">iOS</a></li>
+                <li class="navigation__item"><a href="/tags/iOS" title="" class="">iOS</a></li>
               
                 
-                <li class="navigation__item"><a href="/tags/android" title="" class="">安卓</a></li>
+                <li class="navigation__item"><a href="/tags/Android" title="" class="">安卓</a></li>
               
 
             </ul>
@@ -231,7 +187,7 @@ classes that you can use:
             </font>
             
               <font class="tags">
-                <a class="tags-link" href="/tags/ios/">ios</a>
+                <a class="tags-link" href="/tags/iOS/">iOS</a>
               </font>
             
 
@@ -246,6 +202,7 @@ classes that you can use:
       <blockquote>
 <p>本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。</p>
 </blockquote>
+<a id="more"></a>
 <h2>一、导入PocketSDK</h2>
 <ul>
 <li>
@@ -263,13 +220,13 @@ classes that you can use:
 <li>CoreTelephony.framework</li>
 <li>libz.dylib</li>
 <li>StoreKit.framework</li>
-<li>Security.framework
-&lt;p&gt;&lt;/p&gt;</li>
+<li>Security.framework</li>
 </ul>
 </li>
-<li>
-<p>点击 <em>TARGETS—&gt; Build Settings</em>，搜索 <em>Other Linker Flags</em>，添加<code>-ObjC</code>。</p>
-</li>
+</ul>
+<p></p>
+* 点击 *TARGETS—> Build Settings*，搜索 *Other Linker Flags*，添加`-ObjC`。
+<ul>
 <li>
 <p>点击 <em>PROJECT —&gt; Build Settings</em>，搜索 <em>Other C Flags</em>，添加<code>-DSQLITE_HAS_CODEC</code>。</p>
 </li>
@@ -282,7 +239,7 @@ classes that you can use:
 </ul>
 <blockquote>
 <p><strong>注意事项</strong></p>
-<p><strong>①. SDK使用了SQLCipher加密数据库,工程中无需也不可添加libsqlite3.0.dylib或 libsqlite3.dylib。&lt;br/&gt;
+<p><strong>①. SDK使用了SQLCipher加密数据库,工程中无需也不可添加libsqlite3.0.dylib或 libsqlite3.dylib。<br>
 ②. 如果项目工程中使用了libcurl.a (使用cocos2dx开发的游戏,大部分会用到该静态库),请将静态库 libcrypto.a从目录PoketSDK/SQLCipher/下删除。</strong></p>
 </blockquote>
 <h2>二、PocketSDK开放接口</h2>
@@ -502,8 +459,8 @@ classes that you can use:
 <h4>p12和mobileprovision文件</h4>
 <p>在首次提供SDK时，会提供2个p12文件和3个mobileprovision文件。均双击（使用xcode）安装即可。</p>
 <p>真机调试或打包前需要配置 <em>TARGETS -&gt; Build Settings</em> 中的参数 <em>Provisioning Profile</em> 和 <em>Code Signing Identity</em>。</p>
-<p><em>Provisioning Profile</em> 的debug参数选择 (projectName)_Dev&lt;br/&gt;</p>
-<p><em>Provisioning Profile</em> 的release参数选择 (projectName)_AdHoc&lt;br/&gt;<strong>出提审包时需改为 (projectName)_AppStore</strong></p>
+<p><em>Provisioning Profile</em> 的debug参数选择 (projectName)_Dev<br></p>
+<p><em>Provisioning Profile</em> 的release参数选择 (projectName)_AdHoc<br><strong>出提审包时需改为 (projectName)_AppStore</strong></p>
 <p>分别点击 <em>Code Signing Identify</em> 的 <em>debug</em> 和 <em>release</em> 选择（提示的）与之匹配的 <em>Code Signing Identity</em>。</p>
 <p><img src="http://i2.tietuku.com/520d033d21f089d3.png" alt=""></p>
 <p>另外，设置 <em>TARGETS -&gt; General</em> 中的 <em>Bundle identifier</em> 为平台提供的 BundleId。</p>
