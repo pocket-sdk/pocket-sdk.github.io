@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      归档: 2015 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Pocket Games">
+    
+    
+
+    <meta name="description" content="千奇网络科技">
+<meta property="og:type" content="website">
+<meta property="og:title" content="归档: 2015">
+<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+<meta property="og:site_name" content="PocketSDK">
+<meta property="og:description" content="千奇网络科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="归档: 2015">
+<meta name="twitter:description" content="千奇网络科技">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+
+    <!-- 代码高亮 -->
+    <link href="/css/xcode.css" rel="stylesheet">
+
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for PocketSDK"><img src="/images/favicon.png" width="80" alt="PocketSDK logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">PocketSDK</a></h1>
+        <p class="panel-cover__subtitle">
+          接入指南
+        </p>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">
+          千奇网络科技
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/tags/Server" title="" class="">服务端</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/iOS" title="" class="">iOS</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/Android" title="" class="">安卓</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+------------------------------ -->
+
+<!-- ----------------------------
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <li class="navigation__item">
+    <a href="https://github.com/someus/huno" title="Huno on GitHub">
+      <i class='icon icon-social-github'></i>
+      <span class="label">GitHub</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+------------------------------ -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+
+  <h1 class="archive-title">归档: 2015</h1>
+  <hr class="post-list__divider" />
+
+
+<div class="main-post-list">
+    <ol class="post-list">
+    
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/11/28/SDK-Android接入文档/" title="link to PocketSDK-Android接入指南">PocketSDK-Android接入指南</a></h2>
+
+      <p class="excerpt">
+        <h3>一、概述</h3>
+<p>本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为安卓游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是安卓游戏开发者，包括客户端和服务器。</p>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-11-28" class="post-list__meta--date date">2015-11-28</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/Android/">Android</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/11/28/自动化打包系统接入指南/" title="link to 自动化打包系统接入指南 V1.0">自动化打包系统接入指南 V1.0</a></h2>
+
+      <p class="excerpt">
+        <h3>一、概述</h3>
+<p>本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端</p>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-11-28" class="post-list__meta--date date">2015-11-28</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/Server/">Server</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/11/28/SDK-iOS更新日志/" title="link to PocketSDK-iOS版本更新">PocketSDK-iOS版本更新</a></h2>
+
+      <p class="excerpt">
+        <h2>V3.2.6</h2>
+<ul>
+<li>解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。</li>
+</ul>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-11-28" class="post-list__meta--date date">2015-11-28</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/iOS/">iOS</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/11/28/SDK-Server接入指南/" title="link to PocketSDK-Server接入指南 V2.0">PocketSDK-Server接入指南 V2.0</a></h2>
+
+      <p class="excerpt">
+        <h3>一、概述</h3>
+<p>本文档用于指导游戏公司快速接入PocketGames手游SDK服务器端。</p>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-11-28" class="post-list__meta--date date">2015-11-28</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/Server/">Server</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/10/09/SDK-iOS接入文档/" title="link to PocketSDK-iOS接入文档">PocketSDK-iOS接入文档</a></h2>
+
+      <p class="excerpt">
+        <blockquote>
+<p>本文档用于指导游戏公司快速接入pocket手游SDK，本SDK为iOS游戏提供登录、注册、快速注册、支付等功能。本文档面向的读者是iOS开发者。</p>
+</blockquote>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-10-09" class="post-list__meta--date date">2015-10-09</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/iOS/">iOS</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/10/01/SDK-iOS下载/" title="link to PocketSDK-iOS下载">PocketSDK-iOS下载</a></h2>
+
+      <p class="excerpt">
+        <blockquote>
+<p>首次接入请下载.zip文件和我方运营指定的.bundle文件。
+更新SDK可根据说明单独下载.a文件或.bundle文件更新。</p>
+</blockquote>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-10-01" class="post-list__meta--date date">2015-10-01</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/iOS/">iOS</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title"><a href="/2015/01/18/国内SDK渠道标示/" title="link to 国内SDK渠道标示">国内SDK渠道标示</a></h2>
+
+      <p class="excerpt">
+        <h3>一、概述</h3>
+<p>本文档用于国内渠道标示。</p>
+      </p>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-01-18" class="post-list__meta--date date">2015-01-18</time> &#8226; 
+
+        <span class="post-list__meta--tags tags">
+          <font class="categories">
+            
+          </font>
+          
+            <font class="tags">
+              <a class="tags-link" href="/tags/Server/">Server</a>
+            </font>
+          
+
+        </span>
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+  </ol>
+
+  <hr class="post-list__divider " />
+
+<nav class="pagination" role="navigation">
+    
+
+    <span class="pagination__page-number">Page 1 of 1</span>
+    
+    
+</nav>
+
+
+</div>
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+</footer>
+        </div>
+    </div>
+
+    <!-- The main JavaScript file for Casper -->
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config"> 
+      MathJax.Hub.Config({ 
+        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+    }); 
+    </script>
+
+    <!--kill ie6 -->
+    <!--[if IE 6]>
+      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+    <![endif]-->
+
+    <!--  google analytics -->
+    <script>
+      // add your google analytics code here
+    </script>
+
+    <!-- totop -->
+    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
+    </div>
+    <script>
+    (function($) { 
+      var upperLimit = 100;
+      var scrollElem = $('#totop');
+      var scrollSpeed = 500; 
+      scrollElem.hide();
+      $(window).scroll(function () {            
+        var scrollTop = $(document).scrollTop();       
+        if ( scrollTop > upperLimit ) {
+          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
+        }else{       
+          $(scrollElem).stop().fadeTo(300, 0); // fade out
+        }
+      });
+      $(scrollElem).click(function(){
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+      });
+    })(jQuery);
+    </script>
+
+    <!-- fancybox -->
+    
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+      (function($){
+        $('.fancybox').fancybox();
+      })(jQuery);
+    </script>
+    
+
+    <!-- 代码高亮 -->
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

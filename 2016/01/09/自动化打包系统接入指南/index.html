@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      自动化打包系统接入指南 V1.0 | PocketSDK 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Pocket Games">
+    
+    
+      <meta name="description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端">
+    
+
+    <meta name="description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动化打包系统接入指南 V1.0 | PocketSDK">
+<meta property="og:url" content="http://yoursite.com/2016/01/09/自动化打包系统接入指南/index.html">
+<meta property="og:site_name" content="PocketSDK">
+<meta property="og:description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端">
+<meta property="og:updated_time" content="2016-01-09T04:07:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自动化打包系统接入指南 V1.0 | PocketSDK">
+<meta name="twitter:description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+
+    <!-- 代码高亮 -->
+    <link href="/css/xcode.css" rel="stylesheet">
+
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for PocketSDK"><img src="/images/favicon.png" width="80" alt="PocketSDK logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">PocketSDK</a></h1>
+        <p class="panel-cover__subtitle">
+          接入指南
+        </p>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">
+          千奇网络科技
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/tags/Server" title="" class="">服务端</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/iOS" title="" class="">iOS</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/Android" title="" class="">安卓</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+------------------------------ -->
+
+<!-- ----------------------------
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <li class="navigation__item">
+    <a href="https://github.com/someus/huno" title="Huno on GitHub">
+      <i class='icon icon-social-github'></i>
+      <span class="label">GitHub</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+------------------------------ -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+    
+      
+      <div class="post-meta">
+        <time datetime="2016-01-09" class="post-meta__date date">2016-01-09</time> &#8226; 
+
+        <span class="post-meta__tags tags">
+
+            <font class="categories">
+              
+            </font>
+            
+              <font class="tags">
+                <a class="tags-link" href="/tags/Server/">Server</a>
+              </font>
+            
+
+        </span>
+      </div>
+      
+
+      <h1 class="post-title">自动化打包系统接入指南 V1.0</h1>
+    </header>
+
+    <section class="post">
+      <h3>一、概述</h3>
+<p>本文档用于指导WEB客户端快速接入PocketGames自动化打包系统服务器端</p>
+<a id="more"></a>
+<h3>二、代码接入详细介绍</h3>
+<h5>1. 游戏列表：查看游戏列表接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/game/list</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:left">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:left">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].appId</td>
+<td>int</td>
+<td></td>
+<td>应用ID</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].appName</td>
+<td>String</td>
+<td></td>
+<td>应用名称</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].appKey</td>
+<td>String</td>
+<td></td>
+<td>应用appkey</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].appSecret</td>
+<td>String</td>
+<td></td>
+<td>应用appSecret</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].icon</td>
+<td>String</td>
+<td></td>
+<td>应用图标路径</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].screen</td>
+<td>int</td>
+<td></td>
+<td>横竖屏 0=横屏 1=竖屏</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].onLineChannel</td>
+<td>int</td>
+<td></td>
+<td>在线渠道总数</td>
+</tr>
+<tr>
+<td style="text-align:left">data[i].allChannel</td>
+<td>int</td>
+<td></td>
+<td>所有渠道总数</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>2. 游戏列表：同步游戏接口（新增）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/game/refresh?appId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:left">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>3.游戏列表:查看游戏详情接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/game/find?appId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">示例值</th>
+<th style="text-align:center">必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">应用ID,由平台上分配</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td>error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object</td>
+<td></td>
+<td>产品对象</td>
+</tr>
+<tr>
+<td>data.appId</td>
+<td>String</td>
+<td></td>
+<td>应用ID</td>
+</tr>
+<tr>
+<td>data.appName</td>
+<td>String</td>
+<td></td>
+<td>应用名称</td>
+</tr>
+<tr>
+<td>data.appKey</td>
+<td>String</td>
+<td></td>
+<td>应用KEY</td>
+</tr>
+<tr>
+<td>data.appSecret</td>
+<td>String</td>
+<td></td>
+<td>应用Secret</td>
+</tr>
+<tr>
+<td>data.appDesc</td>
+<td>String</td>
+<td></td>
+<td>应用描述</td>
+</tr>
+<tr>
+<td>data.appIcon</td>
+<td>String</td>
+<td></td>
+<td>应用ICON路径</td>
+</tr>
+<tr>
+<td>data.screen</td>
+<td>int</td>
+<td></td>
+<td>横竖屏 0=横屏 1=竖屏</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>4.游戏列表:添加游戏信息接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/game/add</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用ID</td>
+</tr>
+<tr>
+<td style="text-align:right">appName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用名称</td>
+</tr>
+<tr>
+<td style="text-align:right">appDesc</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用描述</td>
+</tr>
+<tr>
+<td style="text-align:right">appIcon</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用图标的文件</td>
+</tr>
+<tr>
+<td style="text-align:right">screen</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">横竖屏 0=横屏 1=竖屏</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>5.游戏列表:修改游戏信息接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/game/edit</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用ID</td>
+</tr>
+<tr>
+<td style="text-align:right">appName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用名称</td>
+</tr>
+<tr>
+<td style="text-align:right">appDesc</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用描述</td>
+</tr>
+<tr>
+<td style="text-align:right">appIcon</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用图标的文件</td>
+</tr>
+<tr>
+<td style="text-align:right">screen</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">横竖屏 0=横屏 1=竖屏</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>6.ANDROID签名文件：签名列表接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/cert/list</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>证书对象</td>
+</tr>
+<tr>
+<td style="text-align:right">data.certId</td>
+<td>int</td>
+<td></td>
+<td>证书ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.certName</td>
+<td>String</td>
+<td></td>
+<td>证书名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data.alias</td>
+<td>String</td>
+<td></td>
+<td>证书别名</td>
+</tr>
+<tr>
+<td style="text-align:right">data.storepass</td>
+<td>String</td>
+<td></td>
+<td>秘钥库密码</td>
+</tr>
+<tr>
+<td style="text-align:right">data.keypass</td>
+<td>String</td>
+<td></td>
+<td>别名密码</td>
+</tr>
+<tr>
+<td style="text-align:right">data.path</td>
+<td>String</td>
+<td></td>
+<td>证书路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>7.ANDROID签名文件：删除签名接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/cert/delete?certId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持Get方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">certId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">证书ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>8.ANDROID签名文件：添加签名接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/cert/add</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">certName</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">证书名称</td>
+</tr>
+<tr>
+<td style="text-align:right">path</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">证书</td>
+</tr>
+<tr>
+<td style="text-align:right">alias</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">别名</td>
+</tr>
+<tr>
+<td style="text-align:right">storepass</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">秘钥库密码</td>
+</tr>
+<tr>
+<td style="text-align:right">keypass</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">别名密码</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>9.游戏母包版本：母包列表接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gameVesion/list?appId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">应用ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>版本数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionId</td>
+<td>String</td>
+<td></td>
+<td>versionId</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionCode</td>
+<td>String</td>
+<td></td>
+<td>versionCode</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionName</td>
+<td>String</td>
+<td></td>
+<td>versionName</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionPackage</td>
+<td>String</td>
+<td></td>
+<td>versionPackage</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionDesc</td>
+<td>String</td>
+<td></td>
+<td>versionDesc</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].lastUpdateTime</td>
+<td>String</td>
+<td></td>
+<td>APK更新时间</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>10.游戏母包版本：母包添加接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gameVesion/add</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">path</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本路径</td>
+</tr>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏ID</td>
+</tr>
+<tr>
+<td style="text-align:right">versionName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本名称</td>
+</tr>
+<tr>
+<td style="text-align:right">versionCode</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本CODE</td>
+</tr>
+<tr>
+<td style="text-align:right">versionDesc</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本描述</td>
+</tr>
+<tr>
+<td style="text-align:right">versionPackage</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本包名</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>11.游戏母包版本：母包修改接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gameVesion/edit</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">path</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本路径</td>
+</tr>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏ID</td>
+</tr>
+<tr>
+<td style="text-align:right">versionName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本名称</td>
+</tr>
+<tr>
+<td style="text-align:right">versionCode</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本CODE</td>
+</tr>
+<tr>
+<td style="text-align:right">versionDesc</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本描述</td>
+</tr>
+<tr>
+<td style="text-align:right">versionPackage</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本包名</td>
+</tr>
+<tr>
+<td style="text-align:right">versionId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>12.添加ANDROID渠道：显示sdk渠道列表接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/channel/list</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channelPinYin</td>
+<td>String</td>
+<td></td>
+<td>渠道拼音</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channels</td>
+<td>Array</td>
+<td></td>
+<td>渠道列表</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channels[j].channelId</td>
+<td>int</td>
+<td></td>
+<td>渠道SDKID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channels[j].channelLabel</td>
+<td>String</td>
+<td></td>
+<td>渠道SDK的标示</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channels[j].channelName</td>
+<td>String</td>
+<td></td>
+<td>渠道SDK名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channels[j]channelVersion</td>
+<td>String</td>
+<td></td>
+<td>渠道SDK版本</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>13.上传SDK资源：上传渠道包接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/channel/upload</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">zipFile</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK渠道包</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>14.渠道列表：同步渠道配置接口（新增）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfig/refresh?packageId=?</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>15.渠道列表：同步渠道配置详情接口（新增）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/refresh?packageId=?</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>16.渠道列表:渠道配置添加接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfig/add</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏ID</td>
+</tr>
+<tr>
+<td style="text-align:right">channelId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">name</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>17.渠道列表:包配置列表接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfig/list?appId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageId</td>
+<td>int</td>
+<td></td>
+<td>渠道配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].name</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].state</td>
+<td>int</td>
+<td></td>
+<td>渠道配置状态 0=初始化 1=调试中 2=发布</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channelId</td>
+<td>String</td>
+<td></td>
+<td>渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channelLabel</td>
+<td>String</td>
+<td></td>
+<td>渠道标示</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channelName</td>
+<td>String</td>
+<td></td>
+<td>渠道SDK名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].channelVersion</td>
+<td>String</td>
+<td></td>
+<td>渠道SDK版本</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>18.渠道配置详情：配置界面显示(渠道信息、游戏信息)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/show?packageId=&amp;type=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">type</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">类型 0=渠道配置 1=游戏配置</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelId</td>
+<td>int</td>
+<td></td>
+<td>渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelName</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data.url</td>
+<td>String</td>
+<td></td>
+<td>渠道指引的路径</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig</td>
+<td>Array</td>
+<td></td>
+<td>配置数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].dataType</td>
+<td>String</td>
+<td></td>
+<td>数据类型</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].scope</td>
+<td>String</td>
+<td></td>
+<td>数据作用域</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].desc</td>
+<td>String</td>
+<td></td>
+<td>描述</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].ck</td>
+<td>String</td>
+<td></td>
+<td>数据类型</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].inputType</td>
+<td>String</td>
+<td></td>
+<td>输入类型，input radio</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].name</td>
+<td>String</td>
+<td></td>
+<td>数据类型</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].defaultValue</td>
+<td>String</td>
+<td></td>
+<td>默认值</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].type</td>
+<td>String</td>
+<td></td>
+<td>类型 默认是XM_CONFIG</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].key</td>
+<td>String</td>
+<td></td>
+<td>传到后台的数据KEY</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].options</td>
+<td>String</td>
+<td></td>
+<td>可选项</td>
+</tr>
+<tr>
+<td style="text-align:right">data.sdkConfig[i].required</td>
+<td>int</td>
+<td></td>
+<td>0=可选 1=必须</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelConfig</td>
+<td>Array</td>
+<td></td>
+<td>渠道配置数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelConfig[i].cv</td>
+<td>String</td>
+<td></td>
+<td>值</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelConfig[i].key</td>
+<td>String</td>
+<td></td>
+<td>key</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>19.渠道配置详情：配置界面保存(渠道信息、游戏信息)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/save</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">type</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">类型 0=渠道配置 1=游戏配置</td>
+</tr>
+<tr>
+<td style="text-align:right">配置参数的KEY</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">配置参数的KEY</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>20.渠道配置详情：配置界面显示(证书)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/cert/show?packageId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象</td>
+</tr>
+<tr>
+<td style="text-align:right">data.certId</td>
+<td>int</td>
+<td></td>
+<td>证书ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.certName</td>
+<td>String</td>
+<td></td>
+<td>证书名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelId</td>
+<td>int</td>
+<td></td>
+<td>渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.channelName</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>21.渠道配置详情：配置界面保存(证书)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/cert/save</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">certId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">证书文件ID</td>
+</tr>
+<tr>
+<td style="text-align:right">certName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">证书文件名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>22.渠道配置详情：配置界面显示(闪屏)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/splash/show?packageId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data.splash</td>
+<td>Array</td>
+<td></td>
+<td>闪屏数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data.splash[i].url</td>
+<td>String</td>
+<td></td>
+<td>闪屏路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>23.渠道配置详情：配置界面保存(闪屏)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/splash/save</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">deleteSplash</td>
+<td>String</td>
+<td></td>
+<td>删除的证书，用;隔开</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">splash</td>
+<td>file</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">闪屏图片</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>24.渠道配置详情：配置界面显示(游戏图标)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/icon/show?packageId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data.icon</td>
+<td>Array</td>
+<td></td>
+<td>ICON数组，里面用；隔开</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>25.渠道配置详情：配置界面保存(游戏图标)接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/packageConfigDetail/icon/save</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>应用ID</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:right">channelLabel</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道标示</td>
+</tr>
+<tr>
+<td style="text-align:right">icon</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">ICON图片,多个ICON图片用;隔开</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>26.打包列表接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gamepackage/list?appId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>游戏ID</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageId</td>
+<td>int</td>
+<td></td>
+<td>渠道配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].name</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].taskId</td>
+<td>int</td>
+<td></td>
+<td>任务ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageTime</td>
+<td>String</td>
+<td></td>
+<td>打包时间</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageStatus</td>
+<td>int</td>
+<td></td>
+<td>打包状态 0=初始化 1=成功 2=失败</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packagePath</td>
+<td>String</td>
+<td></td>
+<td>打包路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>27.打包添加接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gamepackage/add</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">gamePackageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageId</td>
+<td>int</td>
+<td></td>
+<td>渠道配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.name</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data.taskId</td>
+<td>int</td>
+<td></td>
+<td>任务ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageTime</td>
+<td>String</td>
+<td></td>
+<td>打包时间</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageStatus</td>
+<td>int</td>
+<td></td>
+<td>打包状态 0=初始化 1=成功 2=失败</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packagePath</td>
+<td>String</td>
+<td></td>
+<td>打包路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>28.历史打包记录接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gamepackage/history?packageId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageId</td>
+<td>int</td>
+<td></td>
+<td>渠道配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].name</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].taskId</td>
+<td>int</td>
+<td></td>
+<td>任务ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageTime</td>
+<td>String</td>
+<td></td>
+<td>打包时间</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packageStatus</td>
+<td>int</td>
+<td></td>
+<td>打包状态 0=初始化 1=成功 2=失败</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packagePath</td>
+<td>String</td>
+<td></td>
+<td>打包路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>29.查询打包记录接口（调整）</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/gamepackage/find?taskId=</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">配置ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageId</td>
+<td>int</td>
+<td></td>
+<td>渠道配置ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.name</td>
+<td>String</td>
+<td></td>
+<td>渠道名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data.taskId</td>
+<td>int</td>
+<td></td>
+<td>任务ID</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageTime</td>
+<td>String</td>
+<td></td>
+<td>打包时间</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packageStatus</td>
+<td>int</td>
+<td></td>
+<td>打包状态 0=初始化 1=成功 2=失败</td>
+</tr>
+<tr>
+<td style="text-align:right">data.packagePath</td>
+<td>String</td>
+<td></td>
+<td>打包路径</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>30.渠道包版本：列表(版本)接口(新增)</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/package/version/list?packageId=?</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持GET方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Array</td>
+<td></td>
+<td>对象数组</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionId</td>
+<td>int</td>
+<td></td>
+<td>version id</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionCode</td>
+<td>String</td>
+<td></td>
+<td>版本CODE</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].versionName</td>
+<td>String</td>
+<td></td>
+<td>版本名称</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].packagePath</td>
+<td>String</td>
+<td></td>
+<td>渠道包路径</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].updateWay</td>
+<td>int</td>
+<td></td>
+<td>更新方式 0=关闭 1=不强更 2=强更</td>
+</tr>
+<tr>
+<td style="text-align:right">data[i].createTime</td>
+<td>String</td>
+<td></td>
+<td>上传时间</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>31.渠道包版本：保存(版本)接口(新增)</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/web/package/version/save</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">versionCode</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本CODE</td>
+</tr>
+<tr>
+<td style="text-align:right">versionName</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">版本名称</td>
+</tr>
+<tr>
+<td style="text-align:right">packagePath</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包的路径</td>
+</tr>
+<tr>
+<td style="text-align:right">updateWay</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">更新方式 0=关闭 1=不强更 2=强更</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+      <!-- more -->
+    </section>
+
+    
+  </article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+</footer>
+        </div>
+    </div>
+
+    <!-- The main JavaScript file for Casper -->
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config"> 
+      MathJax.Hub.Config({ 
+        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+    }); 
+    </script>
+
+    <!--kill ie6 -->
+    <!--[if IE 6]>
+      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+    <![endif]-->
+
+    <!--  google analytics -->
+    <script>
+      // add your google analytics code here
+    </script>
+
+    <!-- totop -->
+    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
+    </div>
+    <script>
+    (function($) { 
+      var upperLimit = 100;
+      var scrollElem = $('#totop');
+      var scrollSpeed = 500; 
+      scrollElem.hide();
+      $(window).scroll(function () {            
+        var scrollTop = $(document).scrollTop();       
+        if ( scrollTop > upperLimit ) {
+          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
+        }else{       
+          $(scrollElem).stop().fadeTo(300, 0); // fade out
+        }
+      });
+      $(scrollElem).click(function(){
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+      });
+    })(jQuery);
+    </script>
+
+    <!-- fancybox -->
+    
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+      (function($){
+        $('.fancybox').fancybox();
+      })(jQuery);
+    </script>
+    
+
+    <!-- 代码高亮 -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

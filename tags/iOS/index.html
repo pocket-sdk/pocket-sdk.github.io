@@ -178,38 +178,7 @@ classes that you can use:
     
     <li>
 
-      <h2 class="post-list__post-title post-title"><a href="/2015/11/28/SDK-iOS更新日志/" title="link to PocketSDK-iOS版本更新">PocketSDK-iOS版本更新</a></h2>
-
-      <p class="excerpt">
-        <h2>V3.2.6</h2>
-<ul>
-<li>解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。</li>
-</ul>
-      </p>
-
-      <div class="post-list__meta">
-
-        <time datetime="2015-11-28" class="post-list__meta--date date">2015-11-28</time> &#8226; 
-
-        <span class="post-list__meta--tags tags">
-          <font class="categories">
-            
-          </font>
-          
-            <font class="tags">
-              <a class="tags-link" href="/tags/iOS/">iOS</a>
-            </font>
-          
-
-        </span>
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title"><a href="/2015/10/09/SDK-iOS接入文档/" title="link to PocketSDK-iOS接入文档">PocketSDK-iOS接入文档</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2015/01/08/SDK-iOS接入文档/" title="link to PocketSDK-iOS接入指南">PocketSDK-iOS接入指南</a></h2>
 
       <p class="excerpt">
         <blockquote>
@@ -219,7 +188,7 @@ classes that you can use:
 
       <div class="post-list__meta">
 
-        <time datetime="2015-10-09" class="post-list__meta--date date">2015-10-09</time> &#8226; 
+        <time datetime="2015-01-08" class="post-list__meta--date date">2015-01-08</time> &#8226; 
 
         <span class="post-list__meta--tags tags">
           <font class="categories">
@@ -239,18 +208,54 @@ classes that you can use:
     
     <li>
 
-      <h2 class="post-list__post-title post-title"><a href="/2015/10/01/SDK-iOS下载/" title="link to PocketSDK-iOS下载">PocketSDK-iOS下载</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2015/01/07/SDK-iOS更新日志/" title="link to PocketSDK-iOS版本更新日志">PocketSDK-iOS版本更新日志</a></h2>
 
       <p class="excerpt">
-        <blockquote>
-<p>首次接入请下载.zip文件和我方运营指定的.bundle文件。
-更新SDK可根据说明单独下载.a文件或.bundle文件更新。</p>
-</blockquote>
+        <h2>v3.2.8</h2>
+<p>废除继续支付功能，响应地：</p>
+<ol>
+<li>
+<p>正式账号支付成功后的提示弹窗，取消继续支付按钮，保留返回游戏按钮。</p>
+</li>
+<li>
+<p>新接口（使用方法请参见接入文档）：</p>
+<pre><code> + (void)startPayWithGameOrderId:(NSString *)gameOrderId roleInfo:(PocketSDKRoleInfo *)roleInfo;
+ + (void)buyProductWithIdentifier:(NSString *)productId gameOrderId:(NSString *)gameOrderId roleInfo:(PocketSDKRoleInfo *)roleInfo;
+ + (void)didEnterGameWithRoleInfo:(PocketSDKRoleInfo *)roleInfo;
+</code></pre>
+</li>
+<li>
+<p>新接入游戏不需要实现以下两个回调方法：</p>
+<pre><code> - (NSString *)gameOrderId;
+ - (NSDictionary *)roleInfoInTheGame;
+</code></pre>
+</li>
+<li>
+<p>新接入游戏不再使用以下方法：</p>
+<pre><code> + (void)showPaymentView;
+ + (void)buyProductWithIdentifier:(NSString *)productId;
+ + (void)roleDidEnterGame;
+</code></pre>
+</li>
+</ol>
+<h2>v3.2.7</h2>
+<ul>
+<li>新增官方支付接口<code>+ (void)buyProductWithIdentifier:(NSString *)productId;</code>以及相应回调方法<code>- (void)inAppPurchaseDidSuccess;</code>和
+<code>- (void)inAppPurchaseDidFailWithReason:(PocketSDKIAPFailReason)reason</code>;</li>
+</ul>
+<h2>V3.2.6</h2>
+<ul>
+<li>解决了在unity3D游戏中，游戏从后台恢复悬浮按钮被覆盖的问题。</li>
+</ul>
+<h2>V3.2.5</h2>
+<ul>
+<li>解决了cocos2dx触摸穿透的问题。</li>
+</ul>
       </p>
 
       <div class="post-list__meta">
 
-        <time datetime="2015-10-01" class="post-list__meta--date date">2015-10-01</time> &#8226; 
+        <time datetime="2015-01-07" class="post-list__meta--date date">2015-01-07</time> &#8226; 
 
         <span class="post-list__meta--tags tags">
           <font class="categories">
@@ -347,7 +352,7 @@ classes that you can use:
     
 
     <!-- 代码高亮 -->
-    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
     <script >hljs.initHighlightingOnLoad();</script>
 
 </body>

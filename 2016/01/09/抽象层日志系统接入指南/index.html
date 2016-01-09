@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      抽象层日志系统接入指南 V1.0 | PocketSDK 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Pocket Games">
+    
+    
+      <meta name="description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames抽象层日志系统服务器端">
+    
+
+    <meta name="description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames抽象层日志系统服务器端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象层日志系统接入指南 V1.0 | PocketSDK">
+<meta property="og:url" content="http://yoursite.com/2016/01/09/抽象层日志系统接入指南/index.html">
+<meta property="og:site_name" content="PocketSDK">
+<meta property="og:description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames抽象层日志系统服务器端">
+<meta property="og:updated_time" content="2016-01-09T04:07:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抽象层日志系统接入指南 V1.0 | PocketSDK">
+<meta name="twitter:description" content="一、概述
+本文档用于指导WEB客户端快速接入PocketGames抽象层日志系统服务器端">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+
+    <!-- 代码高亮 -->
+    <link href="/css/xcode.css" rel="stylesheet">
+
+    <script src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for PocketSDK"><img src="/images/favicon.png" width="80" alt="PocketSDK logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">PocketSDK</a></h1>
+        <p class="panel-cover__subtitle">
+          接入指南
+        </p>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">
+          千奇网络科技
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/tags/Server" title="" class="">服务端</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/iOS" title="" class="">iOS</a></li>
+              
+                
+                <li class="navigation__item"><a href="/tags/Android" title="" class="">安卓</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+------------------------------ -->
+
+<!-- ----------------------------
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <li class="navigation__item">
+    <a href="https://github.com/someus/huno" title="Huno on GitHub">
+      <i class='icon icon-social-github'></i>
+      <span class="label">GitHub</span>
+    </a>
+  </li>
+
+  </ul>
+</nav>
+
+------------------------------ -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+  <article class="post-container post-container--single">
+
+    <header class="post-header">
+    
+      
+      <div class="post-meta">
+        <time datetime="2016-01-09" class="post-meta__date date">2016-01-09</time> &#8226; 
+
+        <span class="post-meta__tags tags">
+
+            <font class="categories">
+              
+            </font>
+            
+              <font class="tags">
+                <a class="tags-link" href="/tags/Server/">Server</a>
+              </font>
+            
+
+        </span>
+      </div>
+      
+
+      <h1 class="post-title">抽象层日志系统接入指南 V1.0</h1>
+    </header>
+
+    <section class="post">
+      <h3>一、概述</h3>
+<p>本文档用于指导WEB客户端快速接入PocketGames抽象层日志系统服务器端</p>
+<a id="more"></a>
+<h3>二、代码接入详细介绍</h3>
+<h5>1.初始化日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/init</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>2.社交化日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/social</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">userId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">用户ID</td>
+</tr>
+<tr>
+<td style="text-align:right">platform</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">社交平台 1=facebook 2=twitter 3=line 4=腾讯</td>
+</tr>
+<tr>
+<td style="text-align:right">operator</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作 0=分享 1=点赞 2=邀请好友</td>
+</tr>
+<tr>
+<td style="text-align:right">description</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">社交的详情</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(operator+appId+source+platform+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>3.平台注册日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/platformRegister</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">userId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">用户ID</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>4.平台登陆日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/platformLogin</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">userId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">用户ID</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>5.游戏登陆日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/gameLogin</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">userId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">用户ID</td>
+</tr>
+<tr>
+<td style="text-align:right">gameZoneId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏区服ID</td>
+</tr>
+<tr>
+<td style="text-align:right">roleId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">角色ID</td>
+</tr>
+<tr>
+<td style="text-align:right">level</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">角色等级</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>6.支付日志接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/log/payment</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">渠道ID</td>
+</tr>
+<tr>
+<td style="text-align:right">userId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">用户ID</td>
+</tr>
+<tr>
+<td style="text-align:right">gameOrderId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏订单ID</td>
+</tr>
+<tr>
+<td style="text-align:right">gameZoneId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏区服ID</td>
+</tr>
+<tr>
+<td style="text-align:right">roleId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">角色ID</td>
+</tr>
+<tr>
+<td style="text-align:right">level</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">角色等级</td>
+</tr>
+<tr>
+<td style="text-align:right">productId</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">商品ID</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h5>7.抽象层初始化接口</h5>
+<ul>
+<li>
+<p><strong>请求URL地址</strong></p>
+<p>http://ip地址:端口/pocketgames/client/abstract/init</p>
+</li>
+<li>
+<p><strong>请求参数</strong></p>
+<p>HTTP协议，支持POST方法</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">参数名称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>必须</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">appId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台方分配给游戏的appId</td>
+</tr>
+<tr>
+<td style="text-align:right">source</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">平台来源0=ios 1=android 2=web</td>
+</tr>
+<tr>
+<td style="text-align:right">packageId</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">包ID</td>
+</tr>
+<tr>
+<td style="text-align:right">network</td>
+<td>int</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">网络 0=wifi 1 = 3g 2=其他</td>
+</tr>
+<tr>
+<td style="text-align:right">model</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">机型</td>
+</tr>
+<tr>
+<td style="text-align:right">operatorOs</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">操作系统</td>
+</tr>
+<tr>
+<td style="text-align:right">deviceNo</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">设备号(ANDROID=IMEI,IOS=IDFV)</td>
+</tr>
+<tr>
+<td style="text-align:right">device</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">device(Android=MAC#ANDRIDID IOS=IDFA）</td>
+</tr>
+<tr>
+<td style="text-align:right">version</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">游戏版本</td>
+</tr>
+<tr>
+<td style="text-align:right">sdkVersion</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">SDK版本</td>
+</tr>
+<tr>
+<td style="text-align:right">clientTime</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">客户端时间 (yyyy-MM-dd HH:mm:ss)</td>
+</tr>
+<tr>
+<td style="text-align:right">sign</td>
+<td>String</td>
+<td></td>
+<td>是</td>
+<td style="text-align:center">MD5(appId+source+packageId+appKey)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>返回参数</strong></p>
+<p>以JOSN格式返回结果</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">称</th>
+<th>类型</th>
+<th>示例值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">code</td>
+<td>int</td>
+<td></td>
+<td>返回状态 200=成功,其他等于失败</td>
+</tr>
+<tr>
+<td style="text-align:right">error_msg</td>
+<td>String</td>
+<td></td>
+<td>错误信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data</td>
+<td>Object</td>
+<td></td>
+<td>对象</td>
+</tr>
+<tr>
+<td style="text-align:right">data.configInfo</td>
+<td>json对象</td>
+<td></td>
+<td>配置信息</td>
+</tr>
+<tr>
+<td style="text-align:right">data.updateInfo</td>
+<td>json对象</td>
+<td></td>
+<td>更新信息</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+
+      <!-- more -->
+    </section>
+
+    
+  </article>
+
+
+            <footer class="footer">
+    <span class="footer__copyright">&copy; 2015. All rights reserved.</span>
+</footer>
+        </div>
+    </div>
+
+    <!-- The main JavaScript file for Casper -->
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    <script src="/js/jquery.imagesloaded.min.js"></script>
+    <script src="/js/gallery.js"></script>
+    <script src="/js/jquery.githubRepoWidget.min.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config"> 
+      MathJax.Hub.Config({ 
+        tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+    }); 
+    </script>
+
+    <!--kill ie6 -->
+    <!--[if IE 6]>
+      <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+    <![endif]-->
+
+    <!--  google analytics -->
+    <script>
+      // add your google analytics code here
+    </script>
+
+    <!-- totop -->
+    <div id="totop" style="position:fixed;bottom:50px;right:30px;cursor: pointer;">
+    <a title="back to top"><img style="width:30px;height:30px;" src="/images/totop.png"/></a>
+    </div>
+    <script>
+    (function($) { 
+      var upperLimit = 100;
+      var scrollElem = $('#totop');
+      var scrollSpeed = 500; 
+      scrollElem.hide();
+      $(window).scroll(function () {            
+        var scrollTop = $(document).scrollTop();       
+        if ( scrollTop > upperLimit ) {
+          $(scrollElem).stop().fadeTo(300, 1); // fade back in           
+        }else{       
+          $(scrollElem).stop().fadeTo(300, 0); // fade out
+        }
+      });
+      $(scrollElem).click(function(){
+        $('html, body').animate({scrollTop:0}, scrollSpeed); return false;
+      });
+    })(jQuery);
+    </script>
+
+    <!-- fancybox -->
+    
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+    <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
+      (function($){
+        $('.fancybox').fancybox();
+      })(jQuery);
+    </script>
+    
+
+    <!-- 代码高亮 -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script >hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
