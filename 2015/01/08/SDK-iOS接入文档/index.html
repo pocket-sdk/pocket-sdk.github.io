@@ -407,7 +407,6 @@ classes that you can use:
 
 	/* 调用该方法显示SDK支付界面。SDK支付界面包括iOS内购和第三方支付。
 	 * gameOrderId是游戏交易id，必须保证每次传入的值都是唯一的，否则SDK服务端会拒绝支付。
-	 * 当SDK支付界面关闭时，会回调-paymentViewDidClose方法。
 	 */
 	[PocketSDKManager startPayWithGameOrderId:gameOrderId roleInfo:roleInfo];
 
@@ -415,7 +414,6 @@ classes that you can use:
 
 	/* 调用该方法直接使用iOS内购购买商品。
 	 * productId为商品id，需要在Apple开发者后台配置。其他参数同上方法。
-	 * 内购成功会回调-inAppPurchaseDidSuccess方法；内购失败会回调-inAppPurchaseDidFailWithReason:方法。
 	 */
 	[PocketSDKManager buyProductWithIdentifier:productId gameOrderId:gameOrderId roleInfo:roleInfo];
 
