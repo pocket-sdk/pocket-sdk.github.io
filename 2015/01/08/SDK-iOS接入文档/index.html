@@ -209,9 +209,6 @@ classes that you can use:
 <p>将PocketSDK文件夹拖入工程。</p>
 </li>
 <li>
-<p>将配置文件 PocketSDKConfig_(appId).plist 拖入工程。</p>
-</li>
-<li>
 <p>点击 <em>TARGETS—&gt; Build Phases —&gt; Link Binary With Libraries</em> 添加以下库:</p>
 <ul>
 <li>AdSupport.framework</li>
@@ -233,7 +230,10 @@ classes that you can use:
 <p>点击 <em>PROJECT —&gt; Build Settings</em>，搜索 <em>Other C Flags</em>，添加<code>-DSQLITE_HAS_CODEC</code>。</p>
 </li>
 <li>
-<p>点击 <em>TARGETS—&gt; Info</em>，在 <em>URL Types</em> 中添加项，参数URL Scheme填写<code>fb311294709063394</code>（固定值，所有游戏均使用该值）。</p>
+<p>在工程的info.plist中新增key <code>FacebookAppID</code>，Type为String，值由运营提供。</p>
+</li>
+<li>
+<p>点击 <em>TARGETS—&gt; Info</em>，在 <em>URL Types</em> 中添加项，参数URL Scheme填写<code>fbxxxxxxxxxx</code>（具体值由运营提供）。</p>
 </li>
 <li>
 <p><code>#import “PocketSDKManager.h</code> 。</p>
@@ -274,24 +274,14 @@ classes that you can use:
 /* ------------------------------------------------- *\
    ------------------ SDK初始化方法 ------------------
 \* ------------------------------------------------- */
-
-	/* 发布至AppStore的包（官方包）可不调用。
-	 * 一般官方包的channelId设置为0（默认值），企业包为-1。
-	 * 【注意】如若调用，请在SDK初始化方法之前调用！ 
-	 */
-	[PocketSDKManager setChannelId:0];
 	
 	/* 必须调用。
 	 * SDK初始化方法。 
 	 */
-	[PocketSDKManager shareManagerWithServerAddress:@&quot;&lt;SDK服务器地址&gt;&quot;
-                                              appId:@&quot;&lt;分配的AppId&gt;&quot;
-                                             appKey:@&quot;&lt;分配的AppKey&gt;&quot;];
-
-	/* 可不调用。
-	 * 设置SDK显示模式为横屏或竖屏，未设置则SDK将自动进行匹配。 
-	 */                                     
-	[PocketSDKManager setDisplayMode:PocketSDKDisplayModeLandscape];
+	[PocketSDKManager sharedManagerWithServerAddress:@&quot;&lt;SDK服务器地址&gt;&quot;
+                                              	   appId:@&quot;&lt;分配的AppId&gt;&quot;
+                                             	  appKey:@&quot;&lt;分配的AppKey&gt;&quot;
+                                               channelId:@&quot;&lt;渠道id，官方包为0，企业包为-1&gt;&quot;];
 	
 	/* 必须调用。
 	 * 设置代理，代理对象需实现协议&lt;PocketSDKDelegate&gt;中的方法。 
@@ -371,22 +361,20 @@ classes that you can use:
 }
 
 /* 可选实现的代理方法。
- * SDK支付界面关闭时会回调至该方法。
+ * 调用+startPayWithGameOrderId:startPayWithGameOrderId:接口，支付结束时会回调该方法。
  * 可以在该方法中查询用户游戏币余额、刷新游戏界面，以便体现充值结果（道具或虚拟货币增加）。 
  */
-- (void)paymentViewDidClose {
+- (void)paymentDidFinish {
 
 	...
 }
 
 /* 可选实现的代理方法。
- * 调用SDK接口完成内购之后，会回调至以下方法。
+ * 调用+buyProductWithIdentifier:gameOrderId:roleInfo:接口，支付结束时会回调该方法。
  */
-- (void)inAppPurchaseDidSuccess {
-	 
-}
-- (void)inAppPurchaseDidFailWithReason:(PocketSDKIAPFailReason)reason {
-
+- (void)inAppPurchaseDidFinishWithSuccess:(BOOL)success {
+	
+	...
 }
 
 @end
@@ -399,8 +387,9 @@ classes that you can use:
 	/* 必须调用。
 	 * 在游戏角色进入游戏后调用此方法。
 	 * roleInfo为PocketSDKRoleInfo的实例，可通过+roleInfoWithId:level:serverId:方法创建并传入。
+	 * createRole标识此角色是否为新创建。
 	 */
-	[PocketSDKManager didEnterGameWithRoleInfo:roleInfo];
+	[PocketSDKManager didEnterGameWithRoleInfo:roleInfo createRole:YES];
 	...
 }
 </code></pre>
